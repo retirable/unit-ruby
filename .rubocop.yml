@@ -1,0 +1,15 @@
+AllCops:
+    NewCops: enable
+
+Style/FrozenStringLiteralComment:
+    Enabled: false
+
+Style/MutableConstant:
+    Enabled: false
+
+Layout/LineLength:
+    Max: 100
+    IgnoredPatterns: ['(\A|\s)#']
+
+Style/Documentation:
+    Enabled: false
