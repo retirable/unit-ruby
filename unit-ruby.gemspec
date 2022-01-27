@@ -5,8 +5,8 @@ require 'unit-ruby/version'
 Gem::Specification.new do |spec|
   spec.name          = 'unit-ruby'
   spec.version       = Unit::VERSION
-  spec.authors       = ['Chloe Isacke']
-  spec.email         = ['chloe@retirable.com']
+  spec.authors       = ['Chloe Isacke', 'Ian Yamey']
+  spec.email         = ['chloe@retirable.com', 'ian@retirable.com']
 
   spec.summary       = 'A Ruby gem for communicating with the Unit API.'
   spec.homepage      = 'https://github.com/retirable/unit-ruby'
