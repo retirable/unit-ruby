@@ -1,5 +1,5 @@
 module Unit
-  class DepositAccount < Util::APIResource
+  class DepositAccount < APIResource
     path '/accounts'
 
     attribute :deposit_product, Types::String # The name of the deposit product
@@ -20,9 +20,9 @@ module Unit
 
     belongs_to :customer, class_name: 'Unit::IndividualCustomer'
 
-    include Util::ResourceOperations::List
-    include Util::ResourceOperations::Create
-    include Util::ResourceOperations::Save
-    include Util::ResourceOperations::Find
+    include ResourceOperations::List
+    include ResourceOperations::Create
+    include ResourceOperations::Save
+    include ResourceOperations::Find
   end
 end

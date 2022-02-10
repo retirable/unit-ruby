@@ -1,5 +1,5 @@
 module Unit
-  class Transaction < Util::APIResource
+  class Transaction < APIResource
     path '/transactions'
 
     attribute :direction, Types::String
@@ -8,6 +8,6 @@ module Unit
     attribute :summary, Types::String
     attribute :created_at, Types::DateTime, readonly: true
 
-    include Util::ResourceOperations::List
+    include ResourceOperations::List
   end
 end

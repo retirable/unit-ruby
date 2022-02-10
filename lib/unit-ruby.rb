@@ -37,6 +37,6 @@ module Unit
   #     config.base_url = 'https://api.s.unit.sh'
   #   end
   def self.configure
-    yield(Util::Connection)
+    yield(Connection)
   end
 end

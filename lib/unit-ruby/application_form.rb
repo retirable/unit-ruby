@@ -1,5 +1,5 @@
 module Unit
-  class ApplicationForm < Util::APIResource
+  class ApplicationForm < APIResource
     path '/application-forms'
 
     attribute :tags, Types::Hash # Optional
@@ -12,7 +12,7 @@ module Unit
 
     belongs_to :application, class_name: 'Unit::IndividualApplication'
 
-    include Util::ResourceOperations::Create
-    include Util::ResourceOperations::Find
+    include ResourceOperations::Create
+    include ResourceOperations::Find
   end
 end
