@@ -1,7 +1,7 @@
 module Unit
   module Util
     class APIResource
-      attr_accessor :id, :type
+      attr_accessor :id, :type, :raw_data
 
       def initialize(attributes = {})
         clear_attributes!
@@ -115,6 +115,7 @@ module Unit
       def update_resource_from_json_api(data)
         self.id = data[:id]
         self.type = data[:type]
+        self.raw_data = data
         self.relationships = data[:relationships]
 
         clear_attributes!
@@ -166,12 +167,14 @@ module Unit
       end
 
       def clear_attributes!
-        self.class.schema.attributes.each do |attribute|
+        schema.attributes.each do |attribute|
           update_attribute(attribute.name, nil)
         end
       end
 
       def update_attribute(name, value)
+        return unless schema.contains? name
+
         send("#{name}=", value)
       end
     end

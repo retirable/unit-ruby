@@ -7,6 +7,10 @@ module Unit
         @attributes = []
       end
 
+      def contains?(name)
+        attributes.map(&:name).include? name
+      end
+
       def add(name, type, readonly: false)
         @attributes << Attribute.new(name, type, readonly)
       end

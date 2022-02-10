@@ -27,6 +27,7 @@ require 'unit-ruby/individual_application'
 require 'unit-ruby/individual_customer'
 require 'unit-ruby/individual_debit_card'
 require 'unit-ruby/institution'
+require 'unit-ruby/transaction'
 require 'unit-ruby/version'
 
 module Unit
