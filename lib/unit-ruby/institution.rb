@@ -1,5 +1,5 @@
 module Unit
-  class Institution < Util::APIResource
+  class Institution < APIResource
     attribute :routing_number, Types::String # Routing number of the institution. Valid 9-digit ABA routing transit number.
     attribute :name, Types::String # Name of the institution.
     attribute :address, Types::String # Optional. Address of the institution.
@@ -8,7 +8,7 @@ module Unit
 
     path '/institutions'
 
-    include Util::ResourceOperations::Find
+    include ResourceOperations::Find
 
     def self.find_by(routing_number:)
       find(routing_number)
