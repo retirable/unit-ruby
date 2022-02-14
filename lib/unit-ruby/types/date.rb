@@ -1,3 +1,5 @@
+require 'date'
+
 module Unit
   module Types
     class Date
