@@ -12,7 +12,6 @@ require 'unit-ruby/types/boolean'
 require 'unit-ruby/types/coordinates'
 require 'unit-ruby/types/date_time'
 require 'unit-ruby/types/date'
-require 'unit-ruby/types/decimal'
 require 'unit-ruby/types/float'
 require 'unit-ruby/types/full_name'
 require 'unit-ruby/types/hash'
@@ -27,6 +26,7 @@ require 'unit-ruby/individual_application'
 require 'unit-ruby/individual_customer'
 require 'unit-ruby/individual_debit_card'
 require 'unit-ruby/institution'
+require 'unit-ruby/transaction'
 require 'unit-ruby/version'
 
 module Unit
@@ -36,6 +36,6 @@ module Unit
   #     config.base_url = 'https://api.s.unit.sh'
   #   end
   def self.configure
-    yield(Util::Connection)
+    yield(Connection)
   end
 end

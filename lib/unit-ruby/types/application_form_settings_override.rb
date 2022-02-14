@@ -50,7 +50,7 @@ module Unit
           cardholder_terms_url: cardholder_terms_url,
           cash_advanced_terms_url: cash_advanced_terms_url,
           additional_disclosures: additional_disclosures
-        }
+        }.compact
       end
     end
   end

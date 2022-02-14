@@ -1,5 +1,5 @@
 module Unit
-  class IndividualCustomer < Util::APIResource
+  class IndividualCustomer < APIResource
     path '/customers'
 
     attribute :ssn, Types::String #	SSN (or ITIN) of the individual (numbers only). Either an SSN or a passport number is required.
@@ -20,9 +20,9 @@ module Unit
 
     belongs_to :application, class_name: 'Unit::IndividualApplication'
 
-    include Util::ResourceOperations::List
-    include Util::ResourceOperations::Create
-    include Util::ResourceOperations::Save
-    include Util::ResourceOperations::Find
+    include ResourceOperations::List
+    include ResourceOperations::Create
+    include ResourceOperations::Save
+    include ResourceOperations::Find
   end
 end

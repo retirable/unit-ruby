@@ -1,5 +1,5 @@
 module Unit
-  class AtmLocation < Util::APIResource
+  class AtmLocation < APIResource
     path '/atm-locations'
     attribute :network, Types::String
     attribute :address, Types::Address
@@ -9,7 +9,7 @@ module Unit
     attribute :accept_deposits, Types::Boolean
     attribute :surcharge_free, Types::Boolean
 
-    include Util::ResourceOperations::List
+    include ResourceOperations::List
 
     def self.list_by_coordinates(latitude:, longitude:, search_radius:)
       list(
