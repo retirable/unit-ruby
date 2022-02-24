@@ -79,10 +79,6 @@ module Unit
       self.class.name.split('::').last.camelize(:lower)
     end
 
-    def resource_path
-      "#{self.class.path}/#{id}"
-    end
-
     # Creates an association to a related resource
     # This will create a helper method to traverse into a resource's related resource(s)
     def self.belongs_to(resource_name, class_name: nil)

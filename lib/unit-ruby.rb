@@ -26,6 +26,8 @@ require 'unit-ruby/individual_application'
 require 'unit-ruby/individual_customer'
 require 'unit-ruby/individual_debit_card'
 require 'unit-ruby/institution'
+require 'unit-ruby/pin_status'
+require 'unit-ruby/statement'
 require 'unit-ruby/transaction'
 require 'unit-ruby/version'
 
