@@ -85,7 +85,7 @@ module Unit
       class_name ||= resource_name.to_s.camelize
 
       define_method(resource_name) do
-        relationship_id = relationships[resource_name][:data]&.fetch(:id)
+        relationship_id = relationships.dig(resource_name, :data, :id)
 
         return nil unless relationship_id
 
