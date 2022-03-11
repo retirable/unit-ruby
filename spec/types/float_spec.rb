@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::Float do
   describe '#self.cast' do
     it 'casts a string value as a float' do

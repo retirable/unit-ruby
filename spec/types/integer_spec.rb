@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::Integer do
   describe '#self.cast' do
     it 'casts a string value as an integer' do

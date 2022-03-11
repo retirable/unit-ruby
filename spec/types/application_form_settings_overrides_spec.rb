@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::ApplicationFormSettingsOverride do
   let(:redirect_url) { 'https://my-company.com/redirect-url' }
   let(:privacy_policy_url) { 'https://my-company.com/privacy-policy-url' }

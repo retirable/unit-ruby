@@ -16,6 +16,8 @@ module Unit
       def as_json_api
         items
       end
+
+      delegate :[], to: :items
     end
   end
 end

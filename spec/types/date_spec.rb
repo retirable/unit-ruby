@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::Date do
   describe '#self.cast' do
     it 'returns nil if the value is nil' do

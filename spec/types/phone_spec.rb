@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::Phone do
   let(:country_code) { '1' }
   let(:number) { '9175601738' }

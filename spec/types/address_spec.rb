@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::Address do
   let(:street) { '123 Main St.' }
   let(:city) { 'Brooklyn' }

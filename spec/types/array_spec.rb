@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::Array do
   let(:items) { %i[foo bar] }
 

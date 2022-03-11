@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::FullName do
   let(:first) { 'Roberto' }
   let(:last) { 'Endo' }
