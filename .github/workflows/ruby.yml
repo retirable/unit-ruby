@@ -9,24 +9,27 @@ name: Ruby
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+
+env:
+  UNIT_API_KEY: "${{secrets.UNIT_API_KEY}}"
+  UNIT_BASE_URL: "${{secrets.UNIT_BASE_URL}}"
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['2.6', '2.7', '3.0']
+        ruby-version: ["2.7", "3.0"]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Run tests
-      run: bundle exec rake
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Run tests
+        run: bundle exec rake
