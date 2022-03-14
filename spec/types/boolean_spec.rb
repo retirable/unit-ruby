@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::Boolean do
   describe '#self.cast' do
     it 'casts nil if the value is nil' do

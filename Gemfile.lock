@@ -1,14 +1,25 @@
 PATH
   remote: .
   specs:
-    unit-ruby (0.1.4)
+    unit-ruby (0.2.0)
+      activesupport
       faraday (~> 1.8.0)
+      faraday_middleware (~> 1.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (6.1.4.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
     ast (2.4.2)
+    coderay (1.1.3)
+    concurrent-ruby (1.1.9)
     diff-lcs (1.5.0)
+    dotenv (2.7.6)
     faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -28,10 +39,19 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
+    faraday_middleware (1.0.0)
+      faraday (~> 1.0)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
+    method_source (1.0.0)
+    minitest (5.14.4)
     multipart-post (2.1.1)
     parallel (1.21.0)
     parser (3.1.0.0)
       ast (~> 2.4.1)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.2.0)
@@ -62,13 +82,18 @@ GEM
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bundler (~> 1.17)
+  dotenv (~> 2.7.6)
+  pry
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.24.1)

@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::Coordinates do
   let(:longitude) { '40.0123' }
   let(:latitude) { '-74.0060' }

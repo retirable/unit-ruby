@@ -1,3 +1,7 @@
+require 'faraday'
+require 'faraday_middleware'
+require 'active_support/core_ext/hash'
+
 module Unit
   class Connection
     class << self

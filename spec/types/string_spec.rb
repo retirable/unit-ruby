@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::String do
   describe '#self.cast' do
     it 'casts a string value as a string' do

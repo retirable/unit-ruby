@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Unit::Types::ApplicationFormPrefill do
   let(:application_type) { 'individual' }
   let(:full_name) { Unit::Types::FullName.new(first: 'Test', last: 'User') }
