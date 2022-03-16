@@ -12,6 +12,7 @@ module Unit
     attribute :verify_counterparty_balance, Types::Hash # Optional
 
     attribute :status, Types::String, readonly: true
+    attribute :reason, Types::String, readonly: true
     attribute :settlement_date, Types::DateTime, readonly: true
     attribute :created_at, Types::DateTime, readonly: true
 
