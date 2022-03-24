@@ -38,6 +38,7 @@ module Unit
   #   Unit.configure do |config|
   #     config.api_key = '<your api key>'
   #     config.base_url = 'https://api.s.unit.sh'
+  #     config.trust_token = '<your trust token key>'
   #   end
   def self.configure
     yield(Connection)
