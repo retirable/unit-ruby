@@ -5,13 +5,14 @@ require 'active_support/core_ext/hash'
 module Unit
   class Connection
     class << self
-      attr_accessor :api_key, :base_url
+      attr_accessor :api_key, :base_url, :trust_token
     end
 
     attr_reader :connection
 
     def initialize
       @connection = Faraday.new(self.class.base_url) do |f|
+        f.headers['UNIT_TRUST_TOKEN'] = self.class.trust_token if self.class.trust_token
         f.headers['Authorization'] = "Bearer #{self.class.api_key}"
         f.request :json # encode req bodies as JSON
         f.request :retry # retry transient failures

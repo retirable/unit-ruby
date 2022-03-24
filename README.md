@@ -28,6 +28,7 @@ require 'unit-ruby'
 Unit.configure do |config|
     config.api_key = ENV['UNIT_API_KEY']
     config.base_url = ENV['UNIT_BASE_URL']
+    config.trust_token = ENV['UNIT_TRUST_TOKEN] # optional
 end
 
 ```
