@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Unit::Types::Address do
   let(:street) { '123 Main St.' }
+  let(:street2) { 'Apt 5T' }
   let(:city) { 'Brooklyn' }
   let(:state) { 'NY' }
   let(:postal_code) { '11211' }
@@ -10,6 +11,7 @@ RSpec.describe Unit::Types::Address do
   subject do
     described_class.new(
       street: street,
+      street2: street2,
       city: city,
       state: state,
       postal_code: postal_code,
@@ -19,6 +21,7 @@ RSpec.describe Unit::Types::Address do
 
   it 'instantiates an instance of the type' do
     expect(subject.street).to eq street
+    expect(subject.street2).to eq street2
     expect(subject.city).to eq city
     expect(subject.state).to eq state
     expect(subject.postal_code).to eq postal_code
@@ -27,6 +30,7 @@ RSpec.describe Unit::Types::Address do
 
   describe '#self.cast' do
     let(:new_street) { '55 E. 7th St.' }
+    let(:new_street2) { 'Apt 6A' }
     let(:new_city) { 'Boston' }
     let(:new_state) { 'MA' }
     let(:new_postal_code) { '01784' }
@@ -42,16 +46,16 @@ RSpec.describe Unit::Types::Address do
 
     it 'instantiates a new instance with the provided attributes' do
       instance = described_class.cast(
-        {
-          street: new_street,
-          city: new_city,
-          state: new_state,
-          postal_code: new_postal_code,
-          country: new_country
-        }
+        street: new_street,
+        street2: new_street2,
+        city: new_city,
+        state: new_state,
+        postal_code: new_postal_code,
+        country: new_country
       )
 
       expect(instance.street).to eq new_street
+      expect(instance.street2).to eq new_street2
       expect(instance.city).to eq new_city
       expect(instance.state).to eq new_state
       expect(instance.postal_code).to eq new_postal_code
@@ -62,13 +66,12 @@ RSpec.describe Unit::Types::Address do
   describe '#as_json_api' do
     it 'returns a hash with the correct attributes' do
       expect(subject.as_json_api).to eq(
-        {
-          street: street,
-          city: city,
-          state: state,
-          postal_code: postal_code,
-          country: country
-        }
+        street: street,
+        street2: street2,
+        city: city,
+        state: state,
+        postal_code: postal_code,
+        country: country
       )
     end
   end
