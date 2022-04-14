@@ -70,7 +70,9 @@ module Unit
       "#{path}/#{id}"
     end
 
-    def self.resources_path
+    def self.resources_path(id = nil)
+      return "#{path}/#{id}" if id
+
       path
     end
 

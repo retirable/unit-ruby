@@ -21,7 +21,8 @@ module Unit
 
       module ClassMethods
         def create(attributes)
-          resource = new(attributes)
+          id = attributes.fetch(:id, nil)
+          resource = new(attributes.without(:id))
 
           data = {
             type: resource.resource_type,
@@ -32,7 +33,7 @@ module Unit
               resource.relationships
           end
 
-          created_resource = connection.post(resources_path, { data: data })
+          created_resource = connection.post(resources_path(id), { data: data })
 
           build_resource_from_json_api(created_resource)
         end
