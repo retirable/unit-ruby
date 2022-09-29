@@ -89,7 +89,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.17)
   dotenv (~> 2.7.6)
   pry
   rake (~> 13.0)
@@ -98,4 +97,4 @@ DEPENDENCIES
   unit-ruby!
 
 BUNDLED WITH
-   1.17.2
+   2.3.22
