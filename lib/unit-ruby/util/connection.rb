@@ -1,5 +1,5 @@
 require 'faraday'
-require 'faraday_middleware'
+require 'faraday/retry'
 require 'active_support/core_ext/hash'
 
 module Unit
@@ -16,7 +16,6 @@ module Unit
         f.headers['Authorization'] = "Bearer #{self.class.api_key}"
         f.request :json # encode req bodies as JSON
         f.request :retry # retry transient failures
-        f.response :follow_redirects # follow redirects
         f.response :json # decode response bodies as JSON
       end
     end
