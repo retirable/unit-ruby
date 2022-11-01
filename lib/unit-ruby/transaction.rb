@@ -9,5 +9,6 @@ module Unit
     attribute :created_at, Types::DateTime, readonly: true
 
     include ResourceOperations::List
+    include ResourceOperations::FindByAccount
   end
 end
