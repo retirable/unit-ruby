@@ -16,6 +16,20 @@ module Unit
       end
     end
 
+    module FindByAccount
+      def self.included(klass)
+        klass.extend(ClassMethods)
+      end
+
+      module ClassMethods
+        def find_by_account(account_id:, id:)
+          located_resource = connection.get("/accounts/#{account_id}#{resource_path(id)}")
+
+          build_resource_from_json_api(located_resource)
+        end
+      end
+    end
+
     module Create
       def self.included(klass)
         klass.extend(ClassMethods)
