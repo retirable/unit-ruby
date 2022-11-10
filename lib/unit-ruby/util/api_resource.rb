@@ -97,7 +97,7 @@ module Unit
 
       define_method("#{resource_name}=") do |resource|
         relationships[resource_name] = {
-          data: { type: resource_type || resource_name, id: resource.id }
+          data: { type: resource_type, id: resource.id }
         }
       end
     end
