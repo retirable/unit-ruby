@@ -56,6 +56,36 @@ module Unit
       end
     end
 
+    module BulkCreate
+      def self.included(klass)
+        klass.extend(ClassMethods)
+      end
+
+      module ClassMethods
+        def bulk_create(attributes_list)
+          data_list = attributes_list.map do |attributes|
+            resource = new(attributes.without(:id))
+
+            data = {
+              type: resource.resource_type,
+              attributes: resource.as_json_api.slice(*resource.dirty_attributes)
+            }
+            unless resource.relationships.empty?
+              data[:relationships] =
+                resource.relationships
+            end
+            data
+          end
+
+          created_resource_list = connection.post(resources_path, { data: data_list })
+
+          created_resource_list.map do |created_resource|
+            build_resource_from_json_api(created_resource)
+          end
+        end
+      end
+    end
+
     module List
       def self.included(klass)
         klass.extend(ClassMethods)
