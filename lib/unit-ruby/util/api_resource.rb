@@ -83,8 +83,9 @@ module Unit
 
     # Creates an association to a related resource
     # This will create a helper method to traverse into a resource's related resource(s)
-    def self.belongs_to(resource_name, class_name: nil)
+    def self.belongs_to(resource_name, resource_type: nil, class_name: nil)
       class_name ||= resource_name.to_s.camelize
+      resource_type ||= resource_name.to_s.camelize(:lower)
 
       define_method(resource_name) do
         relationship_id = relationships.dig(resource_name, :data, :id)
@@ -96,7 +97,7 @@ module Unit
 
       define_method("#{resource_name}=") do |resource|
         relationships[resource_name] = {
-          data: { type: resource_name, id: resource.id }
+          data: { type: resource_type, id: resource.id }
         }
       end
     end
