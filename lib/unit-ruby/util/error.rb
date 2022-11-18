@@ -8,7 +8,7 @@ module Unit
       @status = error['status']
       @details = error['details'] || error['detail']
 
-      super(@details)
+      super("#{@title} #{@status}: #{@details}")
     end
   end
 end
