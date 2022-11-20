@@ -81,6 +81,18 @@ module Unit
       self.class.name.split('::').last.camelize(:lower)
     end
 
+    # Allow setting a different resource class as the response resource.
+    #
+    # Usage:
+    #  class ApproveAuthorizationRequest < APIResource
+    #      response_resource PurchaseAuthorizationRequest
+    #  end
+    def self.response_resource(response_resource = nil)
+      return @response_resource || self if response_resource.nil?
+
+      @response_resource = response_resource
+    end
+
     # Creates an association to a related resource
     # This will create a helper method to traverse into a resource's related resource(s)
     def self.belongs_to(resource_name, resource_type: nil, class_name: nil)
@@ -104,7 +116,7 @@ module Unit
 
     # Hyrdates an instance of the resource from data returned from the API
     def self.build_resource_from_json_api(data_item)
-      new.tap do |resource|
+      response_resource.new.tap do |resource|
         resource.mark_as_clean!
         resource.update_resource_from_json_api(data_item)
       end
