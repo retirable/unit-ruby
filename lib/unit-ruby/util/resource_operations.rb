@@ -8,8 +8,10 @@ module Unit
       end
 
       module ClassMethods
-        def find(id)
-          located_resource = connection.get(resource_path(id))
+        # @param where [Hash] Optional. Filters to apply.
+        def find(id, where: nil)
+          params = { filter: where }.compact
+          located_resource = connection.get(resource_path(id), params)
 
           build_resource_from_json_api(located_resource)
         end
