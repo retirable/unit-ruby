@@ -2,7 +2,7 @@ module Unit
   class IndividualVirtualDebitCard < APIResource
     path '/cards'
 
-    attribute :idempotency_key, Types::String # Optional
+    attribute :idempotency_key, Types::String, factory: -> { SecureRandom.uuid } # Optional
     attribute :tags, Types::Hash # Optional
     attribute :limits, Types::Hash # Optional
 

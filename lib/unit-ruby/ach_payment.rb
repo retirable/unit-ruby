@@ -7,7 +7,7 @@ module Unit
     attribute :counterparty, Types::Counterparty # For inline Counterparties
     attribute :description, Types::String
     attribute :addenda, Types::String
-    attribute :idempotency_key, Types::String # Optional
+    attribute :idempotency_key, Types::String, factory: -> { SecureRandom.uuid } # Optional
     attribute :tags, Types::Hash # Optional
     attribute :verify_counterparty_balance, Types::Hash # Optional
 

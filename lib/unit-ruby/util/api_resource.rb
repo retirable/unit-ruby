@@ -9,6 +9,13 @@ module Unit
       attributes.each do |key, value|
         send("#{key}=", value)
       end
+
+      schema.attributes.each do |schema_attribute|
+        next unless schema_attribute.factory
+        next if send(:"#{schema_attribute.name}")
+
+        send(:"#{schema_attribute.name}=", schema_attribute.factory.call)
+      end
     end
 
     # Creates a base http connection to the API
@@ -32,8 +39,9 @@ module Unit
     # @param name [Symbol] the name of the attribute
     # @param type [Class] the object type
     # @param readonly [Boolean] excludes the attribute from the request when creating a resource
-    def self.attribute(name, type = nil, readonly: false)
-      schema.add(name, type, readonly: readonly)
+    # @param factory [Proc] called when attribute is nil during object initialization (not used when deserializing JSON API)
+    def self.attribute(name, type = nil, readonly: false, factory: nil)
+      schema.add(name, type, readonly: readonly, factory: factory)
 
       attr_accessor name
 

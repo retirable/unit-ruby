@@ -1,3 +1,5 @@
+require 'securerandom'
+
 require 'unit-ruby/util/connection'
 require 'unit-ruby/util/error'
 require 'unit-ruby/util/api_resource'

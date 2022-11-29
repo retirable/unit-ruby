@@ -1,6 +1,6 @@
 module Unit
   class Schema
-    Attribute = Struct.new(:name, :type, :readonly)
+    Attribute = Struct.new(:name, :type, :readonly, :factory)
 
     def initialize
       @attributes = []
@@ -10,8 +10,8 @@ module Unit
       attributes.map(&:name).include? name
     end
 
-    def add(name, type, readonly: false)
-      @attributes << Attribute.new(name, type, readonly)
+    def add(name, type, readonly: false, factory: nil)
+      @attributes << Attribute.new(name, type, readonly, factory)
     end
     attr_reader :attributes
   end

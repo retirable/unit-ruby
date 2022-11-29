@@ -15,7 +15,7 @@ module Unit
     attribute :ein, Types::String # Optional. If the individual is a sole proprietor who has an Employer Identification Number, specify it here. Not all sole proprietors have an EIN, so this attribute is optional, even when soleProprietorship is set to true.
     attribute :dba, Types::String # Optional. If the individual is a sole proprietor who is doing business under a different name, specify it here. This attribute is optional, even when soleProprietorship is set to true.
     attribute :tags, Types::Hash # Optional. Tags that will be copied to the customer that this application creates
-    attribute :idempotency_key, Types::String # Optional
+    attribute :idempotency_key, Types::String, factory: -> { SecureRandom.uuid } # Optional
     attribute :device_fingerprints, Types::Array # array of Device Fingerprint	Optional. A list of device fingerprints for fraud and risk prevention
 
     attribute :created_at, Types::DateTime, readonly: true

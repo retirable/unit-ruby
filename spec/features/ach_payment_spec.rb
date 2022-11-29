@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'securerandom'
 
 RSpec.describe Unit::AchPayment do
   before do
@@ -26,7 +25,7 @@ RSpec.describe Unit::AchPayment do
       direction: 'Credit',
       description: 'MyCompany',
       addenda: 'MyCompany monthly payment',
-      idempotency_key: SecureRandom.uuid,
+      idempotency_key: SecureRandom.base64,
       counterparty: counterparty,
       account: deposit_account,
       tags: { tag1: 'value1', tag2: 'value2' }

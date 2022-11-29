@@ -8,7 +8,7 @@ module Unit
     attribute :sender_address, Types::Address
     attribute :sender_account_number, Types::String
     attribute :tags, Types::Hash # Optional
-    attribute :idempotency_key, Types::String # Optional
+    attribute :idempotency_key, Types::String, factory: -> { SecureRandom.uuid } # Optional
 
     belongs_to :batch_account, resource_type: "batchAccount", class_name: 'Unit::DepositAccount'
     belongs_to :receiver, resource_type: "depositAccount", class_name: 'Unit::DepositAccount'
