@@ -3,7 +3,7 @@ module Unit
     path '/accounts'
 
     attribute :deposit_product, Types::String # The name of the deposit product
-    attribute :idempotency_key, Types::String # Optional
+    attribute :idempotency_key, Types::String, factory: -> { SecureRandom.uuid } # Optional
     attribute :tags, Types::Hash # Optional
 
     attribute :created_at, Types::DateTime, readonly: true

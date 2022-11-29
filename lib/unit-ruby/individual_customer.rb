@@ -13,7 +13,7 @@ module Unit
     attribute :dba, Types::String # Optional. If the individual is a sole proprietor who is doing business under a different name.
     attribute :sole_proprietorship, Types::Boolean
     attribute :tags, Types::Hash # Optional. Tags that will be copied to the customer that this application creates
-    attribute :idempotency_key, Types::String # Optional
+    attribute :idempotency_key, Types::String, factory: -> { SecureRandom.uuid } # Optional
     attribute :risk_rate, Types::String, readonly: true
     attribute :authorized_users, Types::Array, readonly: true
     attribute :created_at, Types::DateTime, readonly: true

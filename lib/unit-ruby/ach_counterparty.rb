@@ -8,7 +8,7 @@ module Unit
     attribute :verify_name, Types::Boolean # Optional
     attribute :permissions, Types::String # Optional
     attribute :tags, Types::Hash # Optional
-    attribute :idempotency_key, Types::String # Optional
+    attribute :idempotency_key, Types::String, factory: -> { SecureRandom.uuid } # Optional
 
     attribute :bank, Types::String, readonly: true
     attribute :routing_number, Types::String, readonly: true
