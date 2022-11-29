@@ -20,6 +20,7 @@ require 'unit-ruby/types/integer'
 require 'unit-ruby/types/phone'
 require 'unit-ruby/types/string'
 
+require 'unit-ruby/ach_counterparty'
 require 'unit-ruby/ach_payment'
 require 'unit-ruby/application_form'
 require 'unit-ruby/approve_authorization_request'
