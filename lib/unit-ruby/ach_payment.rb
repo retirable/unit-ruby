@@ -10,6 +10,7 @@ module Unit
     attribute :idempotency_key, Types::String, factory: -> { SecureRandom.uuid } # Optional
     attribute :tags, Types::Hash # Optional
     attribute :verify_counterparty_balance, Types::Hash # Optional
+    attribute :plaid_processor_token, Types::String # Optional
 
     attribute :status, Types::String, readonly: true
     attribute :reason, Types::String, readonly: true
