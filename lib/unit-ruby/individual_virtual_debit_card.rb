@@ -18,5 +18,49 @@ module Unit
     include ResourceOperations::Create
     include ResourceOperations::Save
     include ResourceOperations::Find
+
+    def resource_path
+      self.class.resource_path(id)
+    end
+
+    def report_stolen
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/report-stolen"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def report_lost
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/report-lost"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def close
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/close"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def freeze
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/freeze"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def unfreeze
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/unfreeze"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
   end
 end

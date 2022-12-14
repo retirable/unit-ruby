@@ -21,5 +21,65 @@ module Unit
     include ResourceOperations::Create
     include ResourceOperations::Save
     include ResourceOperations::Find
+
+    def resource_path
+      self.class.resource_path(id)
+    end
+
+    def report_stolen
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/report-stolen"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def report_lost
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/report-lost"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def close
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/close"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def freeze
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/freeze"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def unfreeze
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/unfreeze"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def replace(shipping_address: nil)
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/replace",
+        {
+          data: {
+            type: "replaceCard",
+            attributes: {
+              shipping_address: shipping_address&.as_json_api,
+            }.compact
+          }
+        }
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
   end
 end
