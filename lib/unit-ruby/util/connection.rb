@@ -68,7 +68,7 @@ module Unit
     def handle_errors(response)
       return if response.success?
 
-      raise(Error, response.body)
+      raise(Error, response)
     end
   end
 end
