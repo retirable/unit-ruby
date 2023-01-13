@@ -25,5 +25,7 @@ RSpec.describe Unit::DepositAccount do
     expect(account.currency).to eq 'USD'
     expect(account.freeze_reason).to eq nil
     expect(account.close_reason).to eq nil
+
+    expect(account.customers.first.id).to eq customer.id
   end
 end

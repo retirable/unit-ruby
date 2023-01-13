@@ -101,6 +101,31 @@ module Unit
       end
     end
 
+    def self.has_many(resource_name, class_name: nil)
+      class_name ||= resource_name.to_s.camelize
+
+      define_method(resource_name) do
+        # if there is only one of the resources, Unit will return the
+        # singular name of that relationship in their response.
+        # For example, if a deposit account has one customer, `customer`
+        # will be returned from Unit as a resource, whereas if there
+        # are more than one customer, then customers will be returned from Unit
+
+        # the below will translate these singular relationship
+        # into a plural relationship - ie `customer` -> `customers`
+
+        singular_resource_name = resource_name.to_s.singularize.to_sym
+
+        if relationships.keys.include?(resource_name)
+          relationships.dig(resource_name.to_sym, :data).map do |resource|
+            Kernel.const_get(class_name).find(resource.id)
+          end
+        elsif defined?(singular_resource_name)
+          [send(singular_resource_name)].compact
+        end
+      end
+    end
+
     # Hyrdates an instance of the resource from data returned from the API
     def self.build_resource_from_json_api(data_item)
       new.tap do |resource|
