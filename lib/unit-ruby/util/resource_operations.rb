@@ -22,7 +22,10 @@ module Unit
       module ClassMethods
         def create(attributes)
           id = attributes.fetch(:id, nil)
-          resource = new(attributes.without(:id))
+
+          attributes.delete(:id)
+
+          resource = new(attributes)
 
           data = {
             type: resource.resource_type,
