@@ -19,6 +19,18 @@ module Unit
     attribute :close_reason, Types::String, readonly: true # Optional. The reason the account was closed, either ByCustomer or Fraud.
 
     belongs_to :customer, class_name: 'Unit::IndividualCustomer'
+    has_many :customers, class_name: 'Unit::IndividualCustomer'
+
+    def add_customer(customer_id)
+      self.class.connection.post(
+        "accounts/#{id}/relationships/customers",
+        {
+          data: [{ type: 'customer', id: customer_id }]
+        }
+      )
+
+      self.class.find(id)
+    end
 
     include ResourceOperations::List
     include ResourceOperations::Create
