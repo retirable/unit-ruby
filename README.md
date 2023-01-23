@@ -37,7 +37,20 @@ end
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`.
+
+## Releasing
+
+In order to publish this gem on [RubyGems.org](https://rubygems.org/), you will need to create a RubyGems account. Note that multi-factor authentication must be set up on your account before a gem can be published.
+
+Once your account is set up, the following operations will facilitate publishing the latest version of the gem:
+
+1. Ensure that PR request is approved by appropriate member(s) of the engineering team
+2. Update the gem version number in `version.rb`
+3. Run `gem build unit-ruby`. This will build a version of the gem called `unit-ruby-[gem version number].gem`
+4. Push this latest version of the gem to RubyGems.org by calling `gem push unit-ruby-[gem version number].gem`
+5. Commit `version.rb` file
+6. Merge PR into `main` branch
 
 ## Contributing
 
