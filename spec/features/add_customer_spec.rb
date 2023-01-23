@@ -30,7 +30,6 @@ RSpec.describe Unit::DepositAccount do
     expect(account.customers.map(&:id)).to eq [
       first_individual_customer.id,
       second_individual_customer.id
-
     ]
   end
 end
