@@ -22,6 +22,14 @@ module Unit
     # TODO: For linked counterparties
     # belongs_to :application, class_name: 'Unit::Counterparty'
 
+    def amount_in_cents
+      amount
+    end
+
+    def amount_in_dollars
+      amount / 100
+    end
+
     include ResourceOperations::Find
     include ResourceOperations::List
     include ResourceOperations::Create

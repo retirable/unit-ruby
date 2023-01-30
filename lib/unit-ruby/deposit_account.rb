@@ -32,6 +32,14 @@ module Unit
       self.class.find(id)
     end
 
+    def balance_in_cents
+      balance
+    end
+
+    def balance_in_dollars
+      balance / 100
+    end
+
     include ResourceOperations::List
     include ResourceOperations::Create
     include ResourceOperations::Save
