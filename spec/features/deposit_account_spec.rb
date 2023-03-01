@@ -28,4 +28,14 @@ RSpec.describe Unit::DepositAccount do
 
     expect(account.customers.first.id).to eq customer.id
   end
+
+  let(:deposit_account) do
+    Factory.create_deposit_account(customer)
+  end
+
+  it 'updates the deposit account information' do
+    deposit_account.save({ tags: { userId: 'new-user-id' } })
+    updated_deposit_account = Unit::DepositAccount.find(deposit_account.id)
+    expect(updated_deposit_account.tags[:user_id]).to eq('new-user-id')
+  end
 end

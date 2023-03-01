@@ -63,17 +63,17 @@ module Unit
     end
 
     module Save
-      def save
+      def save(attributes)
+        resource = self.class.new(attributes.except(:id))
         updated_resource = self.class.connection.patch(
-          resource_path,
+          self.class.resource_path(id),
           {
             data: {
               type: resource_type,
-              attributes: as_json_api.slice(*dirty_attributes)
+              attributes: resource.as_json_api.slice(*resource.dirty_attributes)
             }
           }
         )
-
         update_resource_from_json_api(updated_resource)
       end
     end

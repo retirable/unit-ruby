@@ -34,8 +34,27 @@ module Factory
       address: Unit::Types::Address.new(
         street: '123 Main St.', city: 'Brooklyn', state: 'NY', postal_code: '11211', country: 'US'
       ),
-      date_of_birth: '2000-01-01'
+      date_of_birth: '2000-01-01',
+      tags: {
+        userId: 'random-user-id'
+      }
     )
     application.customer
+  end
+
+  def self.create_deposit_account(customer)
+    Unit::DepositAccount.create(deposit_product: 'checking', customer: customer)
+  end
+
+  def self.create_debit_card(customer, deposit_account)
+    random_user_id = rand(10**9).to_s.rjust(9, '0')
+
+    Unit::IndividualDebitCard.create(
+      tags: { userId: random_user_id },
+      shipping_address: customer.address,
+      idempotency_key: "debit-card-#{random_user_id}",
+      customer: customer,
+      account: deposit_account
+    )
   end
 end
