@@ -24,6 +24,7 @@ require 'unit-ruby/types/string'
 
 require 'unit-ruby/ach_counterparty'
 require 'unit-ruby/ach_payment'
+require 'unit-ruby/account_end_of_day'
 require 'unit-ruby/application_form'
 require 'unit-ruby/approve_authorization_request'
 require 'unit-ruby/authorization'
