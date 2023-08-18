@@ -2,7 +2,7 @@ module Unit
   module Types
     class ApplicationFormPrefill
       attr_reader :application_type, :full_name, :ssn, :passport, :nationality, :date_of_birth,
-                  :email, :address, :phone
+                  :email, :address, :phone, :occupation
 
       def initialize(
         application_type: nil,
@@ -13,7 +13,8 @@ module Unit
         date_of_birth: nil,
         email: nil,
         address: nil,
-        phone: nil
+        phone: nil,
+        occupation: nil
       )
         @application_type = application_type
         @full_name = full_name
@@ -24,6 +25,7 @@ module Unit
         @email = email
         @address = address
         @phone = phone
+        @occupation = occupation
       end
 
       def self.cast(val)
@@ -39,7 +41,8 @@ module Unit
           date_of_birth: val[:date_of_birth],
           email: val[:email],
           address: val[:address],
-          phone: val[:phone]
+          phone: val[:phone],
+          occupation: val[:occupation]
         )
       end
 
@@ -53,7 +56,8 @@ module Unit
           date_of_birth: date_of_birth,
           email: email,
           address: address&.as_json_api,
-          phone: phone&.as_json_api
+          phone: phone&.as_json_api,
+          occupation: occupation
         }.compact
       end
     end
