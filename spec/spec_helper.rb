@@ -31,6 +31,7 @@ module Factory
       email: 'automated_testing+johndoe@example.com',
       ssn: unique_ssn,
       phone: Unit::Types::Phone.new(country_code: '1', number: '5555555555'),
+      occupation: 'ArchitectOrEngineer',
       address: Unit::Types::Address.new(
         street: '123 Main St.', city: 'Brooklyn', state: 'NY', postal_code: '11211', country: 'US'
       ),

@@ -17,6 +17,7 @@ module Unit
     attribute :tags, Types::Hash # Optional. Tags that will be copied to the customer that this application creates
     attribute :idempotency_key, Types::String # Optional
     attribute :device_fingerprints, Types::Array # array of Device Fingerprint	Optional. A list of device fingerprints for fraud and risk prevention
+    attribute :occupation, Types::String # Occupation of the individual
 
     attribute :created_at, Types::DateTime, readonly: true
     attribute :status, Types::String, readonly: true
