@@ -45,12 +45,11 @@ In order to publish this gem on [RubyGems.org](https://rubygems.org/), you will 
 
 Once your account is set up, the following operations will facilitate publishing the latest version of the gem:
 
-1. Ensure that PR request is approved by appropriate member(s) of the engineering team
-2. Update the gem version number in `version.rb`
+1. After making your changes to the gem, update the version number in `version.rb` and open a PR for review using semantic versioning
+2. Ensure that PR request is approved by appropriate member(s) of the engineering team before publishing the gem in the below steps
 3. Run `gem build unit-ruby`. This will build a version of the gem called `unit-ruby-[gem version number].gem`
 4. Push this latest version of the gem to RubyGems.org by calling `gem push unit-ruby-[gem version number].gem`
-5. Commit `version.rb` file
-6. Merge PR into `main` branch
+5. Merge PR into `main` branch
 
 ## Contributing
 
