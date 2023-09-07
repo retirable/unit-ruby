@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    unit-ruby (0.2.7)
+    unit-ruby (0.3.7)
       activesupport (>= 6.1.5, < 7.1.0)
       faraday (~> 1.8.0)
       faraday_middleware (~> 1.0.0)
@@ -98,4 +98,4 @@ DEPENDENCIES
   unit-ruby!
 
 BUNDLED WITH
-   2.4.10
+   2.4.19
