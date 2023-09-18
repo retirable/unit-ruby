@@ -124,6 +124,16 @@ module Unit
           [send(singular_resource_name)].compact
         end
       end
+
+      define_method("#{resource_name}=") do |resources|
+        singular_resource_name = resource_name.to_s.singularize.to_sym
+
+        relationships[resource_name] = {
+          data: resources.map do |resource|
+            { type: singular_resource_name, id: resource.id }
+          end
+        }
+      end
     end
 
     # Hyrdates an instance of the resource from data returned from the API
