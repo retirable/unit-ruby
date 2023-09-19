@@ -41,7 +41,7 @@ RSpec.describe Unit::DepositAccount do
     end
   end
 
-  context 'when creating a joing account' do
+  context 'when creating an account with multiple owners' do
     let(:another_customer) do
       Factory.create_individual_customer
     end
