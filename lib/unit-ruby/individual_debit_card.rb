@@ -22,6 +22,13 @@ module Unit
     include ResourceOperations::Save
     include ResourceOperations::Find
 
+
+    def save
+      # unit doesn't recognize `idempotency_key` as a param for PATCH requests on this resource
+      dirty_attributes.delete(:idempotency_key)
+      super
+    end
+
     def resource_path
       self.class.resource_path(id)
     end
