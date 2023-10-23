@@ -24,5 +24,9 @@ module Unit
     include ResourceOperations::Create
     include ResourceOperations::Save
     include ResourceOperations::Find
+
+    def resource_path
+      self.class.resource_path(id)
+    end
   end
 end
