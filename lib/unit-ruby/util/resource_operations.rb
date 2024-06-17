@@ -1,5 +1,3 @@
-require 'active_support/core_ext/enumerable'
-
 module Unit
   module ResourceOperations
     module Find
