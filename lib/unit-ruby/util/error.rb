@@ -1,10 +1,10 @@
 module Unit
   class Error < StandardError
-    attr_accessor :title, :status, :details, :detail
+    attr_accessor :message, :status, :details, :detail
 
     def initialize(api_response)
       error = api_response['errors'].first
-      @title = error['title']
+      @message = error['title']
       @status = error['status']
       @details = error['details'] || error['detail']
 
