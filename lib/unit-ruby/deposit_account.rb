@@ -24,5 +24,51 @@ module Unit
     include ResourceOperations::Create
     include ResourceOperations::Save
     include ResourceOperations::Find
+
+    def resource_path
+      self.class.resource_path(id)
+    end
+
+    def close(reason)
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/close", 
+        {
+          data: {
+            type: "depositAccountClose",
+            attributes: {
+              reason: reason,
+            }.compact
+          }
+        }
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def freeze(reason, reason_text)
+
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/freeze",
+        {
+          data: {
+            type: "accountFreeze",
+            attributes: {
+              reason: reason,
+              reasonText: reason_text,
+            }.compact
+          }
+        }
+      )
+      update_resource_from_json_api(updated_resource)
+    end
+
+    def unfreeze
+      updated_resource = self.class.connection.post(
+        "#{resource_path}/unfreeze"
+      )
+
+      update_resource_from_json_api(updated_resource)
+    end
+
   end
 end
