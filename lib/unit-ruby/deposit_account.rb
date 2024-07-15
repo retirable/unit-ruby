@@ -29,7 +29,7 @@ module Unit
       self.class.resource_path(id)
     end
 
-    def close (reason)
+    def close(reason)
       updated_resource = self.class.connection.post(
         "#{resource_path}/close", 
         {
@@ -45,7 +45,7 @@ module Unit
       update_resource_from_json_api(updated_resource)
     end
 
-    def freeze (reason, reasonText)
+    def freeze(reason, reason_text)
 
       updated_resource = self.class.connection.post(
         "#{resource_path}/freeze",
@@ -54,7 +54,7 @@ module Unit
             type: "accountFreeze",
             attributes: {
               reason: reason,
-              reasonText: reasonText,
+              reasonText: reason_text,
             }.compact
           }
         }
