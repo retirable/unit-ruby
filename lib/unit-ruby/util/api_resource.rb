@@ -96,7 +96,7 @@ module Unit
 
       define_method("#{resource_name}=") do |resource|
         relationships[resource_name] = {
-          data: { type: resource_name, id: resource.id }
+          data: { type: resource_name.to_s.camelize(:lower).to_sym, id: resource.id }
         }
       end
     end
