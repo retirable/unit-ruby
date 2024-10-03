@@ -65,6 +65,19 @@ RSpec.describe Unit::DepositAccount do
       expect(account.close_reason).to eq nil
 
       expect(account.customers.first.id).to eq customer.id
+
+      # These limits do not match production limits
+      account_limits = Unit::AccountLimits.find(account.id)
+      expect(account_limits.ach_debit_daily_limit.total).to eq 500_00
+      expect(account_limits.ach_debit_monthly_limit.total).to eq 20_000_00
+      expect(account_limits.ach_credit_daily_limit.total).to eq 50_000_00
+      expect(account_limits.ach_credit_monthly_limit.total).to eq 50_000_00
+      expect(account_limits.card_daily_withdrawal_limit.total).to eq 5_000_00
+      expect(account_limits.card_daily_deposit_limit.total).to eq 5_000_00
+      expect(account_limits.card_daily_purchase_limit.total).to eq 5_000_00
+      expect(account_limits.card_daily_transaction_limit.total).to eq 5_000_00
+      expect(account_limits.check_deposits_daily_limit.total).to eq 1_000_00
+      expect(account_limits.check_deposits_monthly_limit.total).to eq 20_000_00
     end
   end
 end
