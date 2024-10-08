@@ -32,6 +32,24 @@ module Unit
       self.class.find(id)
     end
 
+    def limits
+      @limits ||= Types::AccountLimits.cast(
+        self.class.connection.get("accounts/#{id}/limits")
+      )
+    end
+
+    def ach_limits
+      limits.ach_limits
+    end
+
+    def card_limits
+      limits.card_limits
+    end
+    
+    def check_deposit_limits
+      limits.check_deposit_limits
+    end
+
     include ResourceOperations::List
     include ResourceOperations::Create
     include ResourceOperations::Save
