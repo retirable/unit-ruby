@@ -14,6 +14,7 @@ module Unit
 
     attribute :status, Types::String, readonly: true
     attribute :reason, Types::String, readonly: true
+    attribute :expected_completion_date, Types::DateTime, readonly: true
     attribute :settlement_date, Types::DateTime, readonly: true
     attribute :created_at, Types::DateTime, readonly: true
 
