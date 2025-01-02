@@ -11,6 +11,7 @@ module Unit
     attribute :tags, Types::Hash # Optional
     attribute :verify_counterparty_balance, Types::Hash # Optional
     attribute :plaid_processor_token, Types::String # Optional
+    attribute :counterparty_name, Types::String # Optional (for microdeposits)
 
     attribute :status, Types::String, readonly: true
     attribute :reason, Types::String, readonly: true
