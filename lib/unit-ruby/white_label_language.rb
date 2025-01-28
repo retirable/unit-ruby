@@ -1,6 +1,6 @@
 module Unit
-  class WhiteLabelTheme < APIResource
-    path '/white-label/theme'
+  class WhiteLabelLanguage < APIResource
+    path '/white-label/language'
 
     def save_config(config_json)
       updated_resource = self.class.connection.put_json(

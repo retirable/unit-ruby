@@ -1,0 +1,96 @@
+{
+    "name": "Unit-Ruby Specs Default Theme",
+    "global": {
+        "avatar": {
+            "iconColor": "var(--primary-main)",
+            "borderColor": "var(--secondary-lighten-2)",
+            "backgroundColor": "var(--secondary-lighten-5)"
+        },
+        "logoUrl": "https://app.s.unit.sh/logo-dark.f1c96208.svg",
+        "colors": {
+            "success": "#93CCBC",
+            "background": "#FFFFFF",
+            "warning": "#F6D469",
+            "secondary": "#93CCBC",
+            "info": "#93CCBC",
+            "error": "#F95C5C",
+            "neutral": "#DADAE2",
+            "primary": "#26313B"
+        },
+        "buttons": {
+            "primary": {
+                "default": {
+                    "backgroundColor": "var(--primary-lighten-1)",
+                    "textColor": "var(--neutral-white)"
+                },
+                "hover": {
+                    "backgroundColor": "var(--primary-lighten-1)",
+                    "textColor": "var(--neutral-white)"
+                },
+                "active": {
+                    "backgroundColor": "var(--primary-lighten-1)"
+                }
+            }
+        },
+        "typography": {
+            "titles": {
+                "h3": {
+                    "color": "var(--primary-darken-4)"
+                },
+                "componentTitle": {
+                    "color": "var(--primary-darken-4)"
+                },
+                "emptyState": {
+                    "title": {
+                        "color": "var(--primary-darken-4)"
+                    }
+                },
+                "h2": {
+                    "color": "var(--primary-darken-4)"
+                },
+                "response": {
+                    "title": {
+                        "color": "var(--primary-darken-4)"
+                    }
+                },
+                "menuTitle": {
+                    "color": "var(--primary-darken-4)"
+                },
+                "flow": {
+                    "title": {
+                        "color": "var(--primary-darken-4)"
+                    }
+                },
+                "bigNumber": {
+                    "color": "var(--primary-lighten-4)"
+                },
+                "table": {
+                    "headers": {
+                        "color": "var(--primary-darken-4)"
+                    }
+                }
+            }
+        }
+    },
+    "elementsAccount": {
+        "titleColor": "var(--primary-darken-4)",
+        "balanceTitleColor": "var(--primary-darken-4)",
+        "coverBackgroundColor": "#F5F1EC"
+    },
+    "elementsCard": {
+        "designs": [
+            {
+                "name": "default",
+                "url": "https://d1xlopvhx2cz8k.cloudfront.net/resources/outlay.png",
+                "fontColor": "#fafafa",
+                "boxShadow": "0px 1px 20px 2px rgb(0 0 0 / 0.24)"
+            },
+            {
+                "name": "default_credit",
+                "url": "https://d1xlopvhx2cz8k.cloudfront.net/resources/outlaycredit2.png",
+                "fontColor": "#fafafa",
+                "boxShadow": "0px 1px 20px 2px rgb(0 0 0 / 0.24)"
+            }
+        ]
+    }
+}

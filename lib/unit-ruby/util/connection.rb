@@ -24,7 +24,11 @@ module Unit
     #
     # @return the resource (or array of resources) returned from the API
     def get(path, params = nil)
-      response = connection.get(path, params)
+      response = connection.get do |req|
+        req.url path
+        req.headers['Content-Type'] = 'application/vnd.api+json'
+        req.params = params if params
+      end
 
       handle_errors(response)
 
@@ -52,6 +56,19 @@ module Unit
         req.url path
         req.headers['Content-Type'] = 'application/vnd.api+json'
         req.body = data.deep_transform_keys! { |key| key.to_s.camelize(:lower) } if data
+      end
+
+      handle_errors(response)
+
+      from_json_api(response.body)
+    end
+
+    # Executes a PUT of a JSON object without transforming the keys
+    def put_json(path, data = nil)
+      response = connection.put do |req|
+        req.url path
+        req.headers['Content-Type'] = 'application/vnd.api+json'
+        req.body = data.deep_transform_keys!(&:to_s) if data
       end
 
       handle_errors(response)
