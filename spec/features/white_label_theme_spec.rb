@@ -5,25 +5,29 @@ RSpec.describe Unit::WhiteLabelTheme do
     establish_connection_to_api!
   end
 
-  after do
-    Unit::WhiteLabelTheme
-      .find(ENV.fetch('UNIT_THEME_ID'))
-      .save_config(JSON.parse(fixture('theme_initial.json').read))
+  def update_theme(fixture_name)
+    Unit::WhiteLabelTheme.find(ENV.fetch('UNIT_THEME_ID')).tap do |theme|
+      theme.replace_json(
+        fixture(fixture_name).read
+      )
+    end
   end
 
   it 'updates a theme' do
-    theme = Unit::WhiteLabelTheme.find(ENV.fetch('UNIT_THEME_ID', nil))
-    initial_theme_configuration = theme.raw_data[:attributes]
+    initial_theme = update_theme('theme_initial.json')
+    initial_theme_attributes = initial_theme.raw_data[:attributes]
 
-    expect(initial_theme_configuration[:name]).to eq('Unit-Ruby Specs Default Theme')
-    expect(initial_theme_configuration[:global][:logo_url]).to eq('https://app.s.unit.sh/logo-dark.f1c96208.svg')
+    expect(initial_theme_attributes[:name])
+      .to eq('Unit-Ruby Specs Default Theme')
+    expect(initial_theme_attributes[:global][:logo_url])
+      .to eq('https://app.s.unit.sh/logo-dark.f1c96208.svg')
 
-    theme.save_config(JSON.parse(fixture('theme_updated.json').read))
+    updated_theme = update_theme('theme_updated.json')
+    updated_theme_attributes = updated_theme.raw_data[:attributes]
 
-    theme = Unit::WhiteLabelTheme.find(ENV.fetch('UNIT_THEME_ID', nil))
-    updated_theme_configuration = theme.raw_data[:attributes]
-
-    expect(updated_theme_configuration[:name]).to eq('Unit-Ruby Specs Updated Theme')
-    expect(updated_theme_configuration[:global][:logo_url]).to eq('https://some-other-logo.svg')
+    expect(updated_theme_attributes[:name])
+      .to eq('Unit-Ruby Specs Updated Theme')
+    expect(updated_theme_attributes[:global][:logo_url])
+      .to eq('https://some-other-logo.svg')
   end
 end

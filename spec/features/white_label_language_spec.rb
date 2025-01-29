@@ -5,41 +5,43 @@ RSpec.describe Unit::WhiteLabelLanguage do
     establish_connection_to_api!
   end
 
-  after do
-    Unit::WhiteLabelLanguage
-      .find(ENV.fetch('UNIT_LANGUAGE_ID'))
-      .save_config(JSON.parse(fixture('language_initial.json').read))
+  def update_language(fixture_name)
+    Unit::WhiteLabelLanguage.find(ENV.fetch('UNIT_LANGUAGE_ID')).tap do |language|
+      language.replace_json(
+        fixture(fixture_name).read
+      )
+    end
   end
 
   it 'updates a language' do
-    language = Unit::WhiteLabelLanguage.find(ENV.fetch('UNIT_LANGUAGE_ID', nil))
-    initial_language_configuration = language.raw_data[:attributes]
+    initial_language = update_language('language_initial.json')
+    initial_language_attributes = initial_language.raw_data[:attributes]
 
-    expect(initial_language_configuration[:name]).to eq('Unit-Ruby Specs English Language Config')
-    expect(initial_language_configuration[:global][:months]).to eq(
-      january: 'January',
-      february: 'February',
-      march: 'March',
-      april: 'April',
-      may: 'May',
-      june: 'June',
-      july: 'July',
-      august: 'August',
-      september: 'September',
-      october: 'October',
-      november: 'November',
-      december: 'December'
-    )
+    expect(initial_language_attributes[:name])
+      .to eq('Unit-Ruby Specs English Language Config')
+    expect(initial_language_attributes[:global][:months])
+      .to eq(
+        january: 'January',
+        february: 'February',
+        march: 'March',
+        april: 'April',
+        may: 'May',
+        june: 'June',
+        july: 'July',
+        august: 'August',
+        september: 'September',
+        october: 'October',
+        november: 'November',
+        december: 'December'
+      )
 
-    language.save_config(JSON.parse(fixture('language_updated.json').read))
+    updated_language = update_language('language_updated.json')
+    updated_language_attributes = updated_language.raw_data[:attributes]
 
-    language = Unit::WhiteLabelLanguage.find(ENV.fetch('UNIT_LANGUAGE_ID', nil))
-    updated_language_configuration = language.raw_data[:attributes]
-
-    expect(updated_language_configuration[:name]).to eq(
+    expect(updated_language_attributes[:name]).to eq(
       'Unit-Ruby Specs Updated English Language Config'
     )
-    expect(updated_language_configuration[:global][:months]).to eq(
+    expect(updated_language_attributes[:global][:months]).to eq(
       january: 'Janyary',
       february: 'Febby',
       march: 'Myarsh',
