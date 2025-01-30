@@ -77,5 +77,25 @@ module Unit
         update_resource_from_json_api(updated_resource)
       end
     end
+
+    # Replace the entire resource, instead of only patching dirty attributes
+    module Replace
+      def replace(attributes)
+        updated_resource = self.class.connection.put(
+          self.class.resource_path(id),
+          {
+            data: {
+              type: resource_type,
+              attributes: attributes
+            }
+          }
+        )
+        update_resource_from_json_api(updated_resource)
+      end
+
+      def replace_json(json_attributes)
+        replace(JSON.parse(json_attributes))
+      end
+    end
   end
 end

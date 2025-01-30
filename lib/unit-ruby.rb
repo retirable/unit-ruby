@@ -44,6 +44,7 @@ require 'unit-ruby/statement'
 require 'unit-ruby/transaction'
 require 'unit-ruby/version'
 require 'unit-ruby/white_label_theme'
+require 'unit-ruby/white_label_language'
 
 module Unit
   # Usage:

@@ -16,6 +16,8 @@ on:
 env:
   UNIT_API_KEY: "${{secrets.UNIT_API_KEY}}"
   UNIT_BASE_URL: "${{secrets.UNIT_BASE_URL}}"
+  UNIT_THEME_ID: 55392
+  UNIT_LANGUAGE_ID: 14363
 
 jobs:
   test:

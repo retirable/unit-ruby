@@ -42,6 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rspec-file_fixtures', '~> 0.1.9'
   spec.add_development_dependency 'rubocop', '~> 1.24.1'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end

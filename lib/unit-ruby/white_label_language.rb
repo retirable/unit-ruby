@@ -1,6 +1,6 @@
 module Unit
-  class WhiteLabelTheme < APIResource
-    path '/white-label/theme'
+  class WhiteLabelLanguage < APIResource
+    path '/white-label/language'
 
     include ResourceOperations::List
     include ResourceOperations::Find

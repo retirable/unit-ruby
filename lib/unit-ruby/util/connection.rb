@@ -14,6 +14,7 @@ module Unit
       @connection = Faraday.new(self.class.base_url) do |f|
         f.headers['UNIT_TRUST_TOKEN'] = self.class.trust_token if self.class.trust_token
         f.headers['Authorization'] = "Bearer #{self.class.api_key}"
+        f.headers['Content-Type'] = 'application/vnd.api+json'
         f.request :json # encode req bodies as JSON
         f.request :retry # retry transient failures
         f.response :json # decode response bodies as JSON
@@ -37,7 +38,6 @@ module Unit
     def post(path, data = nil)
       response = connection.post do |req|
         req.url path
-        req.headers['Content-Type'] = 'application/vnd.api+json'
         req.body = data.deep_transform_keys! { |key| key.to_s.camelize(:lower) } if data
       end
 
@@ -50,9 +50,17 @@ module Unit
     def patch(path, data = nil)
       response = connection.patch do |req|
         req.url path
-        req.headers['Content-Type'] = 'application/vnd.api+json'
         req.body = data.deep_transform_keys! { |key| key.to_s.camelize(:lower) } if data
       end
+
+      handle_errors(response)
+
+      from_json_api(response.body)
+    end
+
+    # Executes a PUT of a JSON object
+    def put(path, data = nil)
+      response = connection.put(path, data)
 
       handle_errors(response)
 

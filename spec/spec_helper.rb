@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'dotenv/load'
 require 'pry'
 require 'unit-ruby'
+require 'rspec/file_fixtures'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -17,8 +18,8 @@ end
 
 def establish_connection_to_api!
   Unit.configure do |config|
-    config.api_key = ENV['UNIT_API_KEY']
-    config.base_url = ENV['UNIT_BASE_URL']
+    config.api_key = ENV.fetch('UNIT_API_KEY', nil)
+    config.base_url = ENV.fetch('UNIT_BASE_URL', nil)
   end
 end
 
