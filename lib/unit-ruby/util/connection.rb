@@ -23,8 +23,12 @@ module Unit
     # Executes a GET request to the API
     #
     # @return the resource (or array of resources) returned from the API
-    def get(path, params = nil)
-      response = connection.get(path, params)
+    def get(path, params = nil, headers = {})
+      response = connection.get do |req|
+        req.url path
+        req.headers.merge!(headers)
+        req.params = params
+      end
 
       handle_errors(response)
 
@@ -34,9 +38,10 @@ module Unit
     # Executes a POST request to the API
     #
     # @return [Unit::APIResource] a new instance of the resource
-    def post(path, data = nil)
+    def post(path, data = nil, headers = {})
       response = connection.post do |req|
         req.url path
+        req.headers.merge!(headers)
         req.headers['Content-Type'] = 'application/vnd.api+json'
         req.body = data.deep_transform_keys! { |key| key.to_s.camelize(:lower) } if data
       end
@@ -47,9 +52,10 @@ module Unit
     end
 
     # Executes a PATCH request to the API
-    def patch(path, data = nil)
+    def patch(path, data = nil, headers = {})
       response = connection.patch do |req|
         req.url path
+        req.headers.merge!(headers)
         req.headers['Content-Type'] = 'application/vnd.api+json'
         req.body = data.deep_transform_keys! { |key| key.to_s.camelize(:lower) } if data
       end
