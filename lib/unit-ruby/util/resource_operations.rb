@@ -38,7 +38,7 @@ module Unit
       end
 
       module ClassMethods
-        def create(attributes, headers: {})
+        def create(headers: {}, **attributes)
           id = attributes.fetch(:id, nil)
           resource = new(attributes.without(:id))
 
