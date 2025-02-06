@@ -24,11 +24,7 @@ module Unit
     #
     # @return the resource (or array of resources) returned from the API
     def get(path, params = nil, headers = {})
-      response = connection.get do |req|
-        req.url path
-        req.headers.merge!(headers)
-        req.params = params
-      end
+      response = connection.get(path, params, headers)
 
       handle_errors(response)
 
