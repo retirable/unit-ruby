@@ -9,7 +9,7 @@ module Unit
 
       module ClassMethods
         # @param where [Hash] Optional. Filters to apply.
-        def find(id, options: {})
+        def find(id, where: nil, options: {})
           headers = options.fetch(:headers, {})
           params = { filter: where }.compact
           located_resource = connection.get(resource_path(id), params, headers)
