@@ -40,10 +40,12 @@ module Unit
       end
 
       module ClassMethods
-        def create(options: {}, **attributes)
+        def create(attributes)
           id = attributes.fetch(:id, nil)
-          resource = new(attributes.without(:id))
+          options = attributes.fetch(:options, {})
           headers = options.fetch(:headers, {})
+          
+          resource = new(attributes.without(:id, :options))
 
           data = {
             type: resource.resource_type,
