@@ -24,12 +24,12 @@ module Unit
     # Executes a GET request to the API
     #
     # @return the resource (or array of resources) returned from the API
-    def get(path, params = nil)
+    def get(path, params = nil, raw: false)
       response = connection.get(path, params)
 
       handle_errors(response)
 
-      from_json_api(response.body)
+      raw ? response.body : from_json_api(response.body)
     end
 
     # Executes a POST request to the API

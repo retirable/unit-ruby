@@ -20,15 +20,56 @@
         "buttons": {
             "primary": {
                 "default": {
-                    "backgroundColor": "var(--primary-lighten-1)",
+                    "backgroundColor": "var(--neutral-darker)",
                     "textColor": "var(--neutral-white)"
                 },
                 "hover": {
-                    "backgroundColor": "var(--primary-lighten-1)",
-                    "textColor": "var(--neutral-white)"
+                    "backgroundColor": "var(--neutral-dark)",
+                    "textColor": "var(--neutral-lightest)"
                 },
                 "active": {
-                    "backgroundColor": "var(--primary-lighten-1)"
+                    "backgroundColor": "var(--neutral-darker)",
+                    "textColor": "var(--neutral-white)"
+                },
+                "disabled": {
+                    "backgroundColor": "var(--neutral-light)",
+                    "textColor": "var(--neutral-medium)"
+                }
+            },
+            "secondary": {
+                "default": {
+                    "backgroundColor": "var(--neutral-darker)",
+                    "textColor": "var(--neutral-white)"
+                },
+                "hover": {
+                    "backgroundColor": "var(--neutral-dark)",
+                    "textColor": "var(--neutral-lightest)"
+                },
+                "active": {
+                    "backgroundColor": "var(--neutral-darker)",
+                    "textColor": "var(--neutral-white)"
+                },
+                "disabled": {
+                    "backgroundColor": "var(--neutral-light)",
+                    "textColor": "var(--neutral-medium)"
+                }
+            },
+            "subtle": {
+                "default": {
+                    "backgroundColor": "var(--neutral-darker)",
+                    "textColor": "var(--neutral-white)"
+                },
+                "hover": {
+                    "backgroundColor": "var(--neutral-dark)",
+                    "textColor": "var(--neutral-lightest)"
+                },
+                "active": {
+                    "backgroundColor": "var(--neutral-darker)",
+                    "textColor": "var(--neutral-white)"
+                },
+                "disabled": {
+                    "backgroundColor": "var(--neutral-light)",
+                    "textColor": "var(--neutral-medium)"
                 }
             }
         },
@@ -59,6 +100,9 @@
                 "flow": {
                     "title": {
                         "color": "var(--primary-darken-4)"
+                    },
+                    "subtitle": {
+                        "color": "var(--neutral-darker)"
                     }
                 },
                 "bigNumber": {
@@ -81,13 +125,13 @@
         "designs": [
             {
                 "name": "default",
-                "url": "https://d1xlopvhx2cz8k.cloudfront.net/resources/outlay.png",
+                "url": "/some_card_url.png",
                 "fontColor": "#fafafa",
                 "boxShadow": "0px 1px 20px 2px rgb(0 0 0 / 0.24)"
             },
             {
                 "name": "default_credit",
-                "url": "https://d1xlopvhx2cz8k.cloudfront.net/resources/outlaycredit2.png",
+                "url": "/some_card_url.png",
                 "fontColor": "#fafafa",
                 "boxShadow": "0px 1px 20px 2px rgb(0 0 0 / 0.24)"
             }

@@ -1,363 +1,558 @@
 {
-    "name": "Unit-Ruby Specs Updated English Language Config",
-    "global": {
-      "days": {
-        "yesterday": "Yesterday",
-        "today": "Today"
+  "name": "Unit-Ruby Specs Updated English Language Config",
+  "global": {
+    "days": {
+      "yesterday": "Yesterday",
+      "today": "Today"
+    },
+    "toasts": {
+      "copy": "Copied"
+    },
+    "months": {
+      "january": "Janyary",
+      "february": "Febby",
+      "march": "Myarsh",
+      "april": "Ahpreel",
+      "may": "Meje",
+      "june": "Joone",
+      "july": "Judy",
+      "august": "Aygist",
+      "september": "Septebber",
+      "october": "Octopus",
+      "november": "Novii",
+      "december": "Decembah"
+    },
+    "states": {
+      "AL": "Alabama",
+      "AK": "Alaska",
+      "AZ": "Arizona",
+      "AR": "Arkansas",
+      "CA": "California",
+      "CO": "Colorado",
+      "CT": "Connecticut",
+      "DE": "Delaware",
+      "DC": "District Of Columbia",
+      "FL": "Florida",
+      "GA": "Georgia",
+      "HI": "Hawaii",
+      "ID": "Idaho",
+      "IL": "Illinois",
+      "IN": "Indiana",
+      "IA": "Iowa",
+      "KS": "Kansas",
+      "KY": "Kentucky",
+      "LA": "Louisiana",
+      "ME": "Maine",
+      "MD": "Maryland",
+      "MA": "Massachusetts",
+      "MI": "Michigan",
+      "MN": "Minnesota",
+      "MS": "Mississippi",
+      "MO": "Missouri",
+      "MT": "Montana",
+      "NE": "Nebraska",
+      "NV": "Nevada",
+      "NH": "New Hampshire",
+      "NJ": "New Jersey",
+      "NM": "New Mexico",
+      "NY": "New York",
+      "NC": "North Carolina",
+      "ND": "North Dakota",
+      "OH": "Ohio",
+      "OK": "Oklahoma",
+      "OR": "Oregon",
+      "PA": "Pennsylvania",
+      "RI": "Rhode Island",
+      "SC": "South Carolina",
+      "SD": "South Dakota",
+      "TN": "Tennessee",
+      "TX": "Texas",
+      "UT": "Utah",
+      "VT": "Vermont",
+      "VA": "Virginia",
+      "WA": "Washington",
+      "WV": "West Virginia",
+      "WI": "Wisconsin",
+      "WY": "Wyoming"
+    },
+    "accountPurpose": {
+      "taxes": "taxes",
+      "saving": "saving",
+      "savings": "savings",
+      "generic": "generic",
+      "account": "account",
+      "checking": "checking",
+      "expenses": "expenses",
+      "spending": "spending"
+    }
+  },
+  "elementsCard": {
+    "title": {
+      "virtual": "Virtual Card {{cardNumberLast4Digits}}",
+      "physical": "Spend Card {{cardNumberLast4Digits}}"
+    },
+    "goodThru": "GOOD \n THRU",
+    "types": {
+      "debit": "Debit",
+      "credit": "Credit",
+      "individual": "Individual",
+      "business": "Business",
+      "virtual": "Virtual",
+      "physical": "Physical"
+    },
+    "statuses": {
+      "lost": "Lost",
+      "active": "Active",
+      "stolen": "Stolen",
+      "frozen": "Frozen",
+      "inactive": "Inactive",
+      "closedByCustomer": "Closed",
+      "suspectedFraud": "Disabled"
+    },
+    "sensitiveDataButton": {
+      "show": "Show Details",
+      "hide": "Hide Details"
+    },
+    "menuItems": {
+      "title": "Manage Card",
+      "freeze": "Freeze",
+      "close": "Close Card",
+      "unfreeze": "Unfreeze",
+      "managePin": "Manage PIN",
+      "replace": "Replace Card",
+      "lostOrStolen": "Report Lost or Stolen",
+      "addToWallet": "Manage {{walletName}} Wallet"
+    },
+    "actions": {
+      "common": {
+        "proceedButton": "Continue",
+        "backButton": "Back",
+        "errorResponse": {
+          "title": "Something went wrong",
+          "description": "Please try again later"
+        }
       },
-      "toasts": {
-        "copy": "Copied"
+      "activate": {
+        "overlayButton": "Activate",
+        "form": {
+          "flowTitle": "Card Activation",
+          "mainTitle": "Activate your card",
+          "description": "Enter your 3-digit CVV and expiration date from the back of your card to activate it",
+          "expirationDate": {
+            "label": "Expiration Date",
+            "errorMessages": {
+              "required": "Required",
+              "expirationDate": "The expiration date is invalid"
+            }
+          },
+          "cvv2": {
+            "label": "CVV",
+            "errorMessages": {
+              "required": "Required",
+              "securityCode": "The security code is invalid"
+            }
+          }
+        },
+        "response": {
+          "title": "Your Spend card has been activated",
+          "description": "Taking you to set up your PIN"
+        }
       },
-      "months": {
-        "january": "Janyary",
-        "february": "Febby",
-        "march": "Myarsh",
-        "april": "Ahpreel",
-        "may": "Meje",
-        "june": "Joone",
-        "july": "Judy",
-        "august": "Aygist",
-        "september": "Septebber",
-        "october": "Octopus",
-        "november": "Novii",
-        "december": "Decembah"
+      "freeze": {
+        "flowTitle": "Freeze card",
+        "mainTitle": "Are you sure you want to freeze this card?",
+        "description": "You won’t be able to use your card while it is frozen, but you can unfreeze it at any time."
       },
-      "states": {
-        "AL": "Alabama",
-        "AK": "Alaska",
-        "AZ": "Arizona",
-        "AR": "Arkansas",
-        "CA": "California",
-        "CO": "Colorado",
-        "CT": "Connecticut",
-        "DE": "Delaware",
-        "DC": "District Of Columbia",
-        "FL": "Florida",
-        "GA": "Georgia",
-        "HI": "Hawaii",
-        "ID": "Idaho",
-        "IL": "Illinois",
-        "IN": "Indiana",
-        "IA": "Iowa",
-        "KS": "Kansas",
-        "KY": "Kentucky",
-        "LA": "Louisiana",
-        "ME": "Maine",
-        "MD": "Maryland",
-        "MA": "Massachusetts",
-        "MI": "Michigan",
-        "MN": "Minnesota",
-        "MS": "Mississippi",
-        "MO": "Missouri",
-        "MT": "Montana",
-        "NE": "Nebraska",
-        "NV": "Nevada",
-        "NH": "New Hampshire",
-        "NJ": "New Jersey",
-        "NM": "New Mexico",
-        "NY": "New York",
-        "NC": "North Carolina",
-        "ND": "North Dakota",
-        "OH": "Ohio",
-        "OK": "Oklahoma",
-        "OR": "Oregon",
-        "PA": "Pennsylvania",
-        "RI": "Rhode Island",
-        "SC": "South Carolina",
-        "SD": "South Dakota",
-        "TN": "Tennessee",
-        "TX": "Texas",
-        "UT": "Utah",
-        "VT": "Vermont",
-        "VA": "Virginia",
-        "WA": "Washington",
-        "WV": "West Virginia",
-        "WI": "Wisconsin",
-        "WY": "Wyoming"
+      "unfreeze": {
+        "flowTitle": "Unfreeze card",
+        "mainTitle": "Are you sure you want to unfreeze this card?"
       },
-      "accountPurpose": {
-        "taxes": "taxes",
-        "saving": "saving",
-        "savings": "savings",
-        "generic": "generic",
-        "account": "account",
-        "checking": "checking",
-        "expenses": "expenses",
-        "spending": "spending"
+      "managePin": {
+        "flowTitle": "Manage PIN",
+        "setPin": {
+          "mainTitle": "Set your new card PIN",
+          "enterPin": {
+            "label": "Enter a four digit PIN code",
+            "errorMessages": {
+              "required": "Required",
+              "pattern": "Make sure the PIN includes digits only"
+            }
+          },
+          "reenterPin": {
+            "label": "Confirm new PIN",
+            "errorMessages": {
+              "required": "Required",
+              "pattern": "Make sure the PIN includes digits only",
+              "comparison": "Make sure to enter the same PIN number"
+            }
+          },
+          "response": {
+            "title": "Your Spend card PIN is set",
+            "description": "Your card is ready for use"
+          }
+        },
+        "changePin": {
+          "mainTitle": "Change your PIN",
+          "currentPin": {
+            "label": "Your current PIN",
+            "errorMessages": {
+              "required": "Required",
+              "pattern": "Make sure the PIN includes digits only"
+            }
+          },
+          "newPin": {
+            "label": "New PIN code",
+            "errorMessages": {
+              "required": "Required",
+              "pattern": "Make sure the PIN includes digits only"
+            }
+          },
+          "newPinConfirm": {
+            "label": "Confirm new PIN",
+            "errorMessages": {
+              "required": "Required",
+              "pattern": "Make sure the PIN includes digits only",
+              "comparison": "Make sure to enter the same PIN number"
+            }
+          },
+          "response": {
+            "title": "Your Spend card PIN is set"
+          }
+        }
+      },
+      "replace": {
+        "flowTitle": "Replace card",
+        "mainTitle": "Confirm shipping address",
+        "description": "Your card will be shipped to this address in 5-7 business days",
+        "formButton": "Change address",
+        "form": {
+          "title": "Update your shipping address",
+          "subtitle": "Your card will be shipped to this address in 5-7 business days",
+          "submitButton": "Confirm address",
+          "street": {
+            "label": "Street address",
+            "errorMessages": {
+              "required": "Please enter your street address"
+            }
+          },
+          "street2": {
+            "label": "Apt, Suite, Unit"
+          },
+          "city": {
+            "label": "City",
+            "errorMessages": {
+              "required": "Please enter your city"
+            }
+          },
+          "state": {
+            "label": "State",
+            "errorMessages": {
+              "required": "Please select your state"
+            }
+          },
+          "postalCode": {
+            "label": "Zip code",
+            "errorMessages": {
+              "required": "Please enter your zip code",
+              "pattern": "Zip code must be 5 or 9 digits long"
+            }
+          }
+        },
+        "response": {
+          "title": "Your replacement card is on the way",
+          "description": "Expect your card to arrive in 5-7 business days"
+        }
+      },
+      "report": {
+        "flowTitle": "Report card",
+        "mainTitle": "Report card ending with {{maskedCardNumberLast4Digits}}",
+        "description": "What happened to your card?",
+        "confirmationTitle": "Are you sure you want to report this card?",
+        "confirmationDescription": "Reporting your card will close it permanently. You will receive a new card in 5-7 business days.",
+        "radioButtons": {
+          "lost": "My card was lost",
+          "stolen": "My card was stolen"
+        },
+        "admonition": {
+          "description": "A Lost or Stolen card will be permanently closed.",
+          "link": "Learn more"
+        },
+        "response": {
+          "title": "Your card was closed",
+          "description": {
+            "lost": "Your card was reported Lost and you won't be able to make transactions using it",
+            "stolen": "Your card was reported Stolen and you won't be able to make transactions using it"
+          }
+        }
+      },
+      "close": {
+        "flowTitle": "Close card",
+        "mainTitle": "Are you sure you want to close card ending with {{maskedCardNumberLast4Digits}}?",
+        "description": "Your card will be closed, but your deposit account will remain open.",
+        "admonition": {
+          "description": "Closing this card is permanent and cannot be reversed.",
+          "link": "Learn more"
+        },
+        "response": {
+          "title": "Your card is closed",
+          "description": "It can no longer be used"
+        }
+      },
+      "addToWallet": {
+        "flowTitle": "Mobile wallet",
+        "mainTitle": "Add your card to {{walletName}} wallet",
+        "description": "Add your card for easy payment with the wallet app anywhere.",
+        "response": {
+          "title": "Your card was successfully added to {{walletName}} wallet"
+        }
+      }
+    }
+  },
+  "elementsAccount": {
+    "title": "{{accountPurposeWords}} {{maskedAccountNumber}}",
+    "availableBalance": "Available Balance",
+    "creditBalance": "Credit Balance",
+    "accountActions": {
+      "title": "Account Actions",
+      "accountDetails": "Account Details",
+      "accountStatements": "Account Statements",
+      "bankVerificationLetter": "Bank Verification Letter"
+    },
+    "accountDetails": {
+      "title": "Account {{maskedAccountNumber}}",
+      "subtitle": "{{accountName}}",
+      "accountOwner": "Account owner",
+      "accountNumber": "Account number",
+      "accountRoutingNumber": "Routing number",
+      "accountPurpose": "Account Purpose",
+      "bank": "Bank"
+    },
+    "accountStatements": {
+      "title": "Account Statements",
+      "subtitle": "Download account statement for account ending with #{{accountNumberLast4Digits}}",
+      "downloadStatementButton": "Save Statement",
+      "downloadStatementErrorMessage": "Download failed , try again later",
+      "emptyStatementsMessage": "There are no account statements available"
+    },
+    "accountList": {
+      "title": "Switch Account",
+      "accountTitle": "{{accountPurposeWords}} {{maskedAccountNumber}}",
+      "accountSubtitle": "{{accountName}}"
+    }
+  },
+  "elementsAchDebit": {
+    "flowTitle": "Fund my account",
+    "accountsListStage": {
+      "title": "Pull funds to",
+      "listTitle": "Select destination account",
+      "backButton": "Back",
+      "destination": "Destination account"
+    },
+    "counterpartiesListStage": {
+      "title": "Pull funds from",
+      "addButton": "New account"
+    },
+    "emptyListStage": {
+      "title": "Pull funds from",
+      "nextButton": "Connect New Account",
+      "message": {
+        "title": "Connect your first account",
+        "subtitle": "Log in instantly and securely to your accounts, no matter in which bank. This will allow you to transfer money and fund your account"
       }
     },
-    "elementsCard": {
-      "title": {
-        "virtual": "Virtual Card {{cardNumberLast4Digits}}",
-        "physical": "Physical Card {{cardNumberLast4Digits}}"
+    "counterpartyAddedStage": {
+      "successMessage": {
+        "firstLine": "New account was",
+        "secondLine": "connected successfully!"
+      }
+    },
+    "enterAmountStage": {
+      "title": "New transfer",
+      "nextButton": "Continue",
+      "backButton": "Back",
+      "input": {
+        "title": "Amount"
+      }
+    },
+    "reviewStage": {
+      "title": "Review transfer",
+      "nextButton": "Complete payment",
+      "backButton": "Back",
+      "footnote": {
+        "regularText": "Funds will be available",
+        "boldText": "in 1-3 business days"
       },
-      "goodThru": "GOOD \n THRU",
-      "types": {
-        "debit": "Debit",
-        "credit": "Credit",
-        "individual": "Individual",
-        "business": "Business",
-        "virtual": "Virtual",
-        "physical": "Physical"
+      "descriptionList": {
+        "amount": "Amount",
+        "fee": "Fee",
+        "date": "Transaction Date"
       },
-      "statuses": {
-        "lost": "Lost",
-        "active": "Active",
-        "stolen": "Stolen",
-        "frozen": "Frozen",
-        "inactive": "Inactive",
-        "closedByCustomer": "Closed",
-        "suspectedFraud": "Disabled"
+      "input": {
+        "label": "Description (optional)",
+        "note": "Visible to the recipient"
+      }
+    },
+    "completedStage": {
+      "messages": {
+        "pendingMessage": {
+          "title": "Account funded with ${{amount}}",
+          "subtitle": "Transfer expected by {{date}}"
+        },
+        "errorMessage": {
+          "title": "Something went wrong",
+          "subtitle": "Please try again later"
+        },
+        "rejectedMessages": {
+          "title": "The transfer could not be sent",
+          "subtitle": {
+            "accountClosed": "The recipient's account has been closed",
+            "accountFrozen": "The recipient's account has been frozen",
+            "insufficientFunds": "The recipient's account has insufficient funds"
+          }
+        }
+      }
+    }
+  },
+  "elementsAchCredit": {
+    "flowTitle": "",
+    "accountsListStage": {
+      "title": "Send payment from"
+    },
+    "counterpartiesListStage": {
+      "title": "Send payment to",
+      "backButton": "Back",
+      "listTitle": "Select destination recipient",
+      "addButton": "New recipient",
+      "destination": "Destination recipient"
+    },
+    "emptyListStage": {
+      "title": "Send payment to",
+      "nextButton": "Add New Recipient",
+      "backButton": "Back",
+      "destination": "Destination recipient",
+      "message": {
+        "title": "You haven’t added any recipients",
+        "subtitle": "Easily add your first recipient and transfer money easily & quickly"
+      }
+    },
+    "addNewCounterpartyStage": {
+      "title": "New recipient",
+      "nextButton": "Continue",
+      "backButton": "Back",
+      "form": {
+        "fullName": {
+          "label": "Full Name",
+          "errorMessages": {
+            "minLength": "Full name must contain at least 2 letters",
+            "required": "Full name is required"
+          }
+        },
+        "routingNumber": {
+          "label": "Routing No.",
+          "errorMessages": {
+            "pattern": "Routing number must be 9 digits long",
+            "required": "Routing number is required"
+          },
+          "unknownInstitution": {
+            "message": "Unknown Institution",
+            "tooltip": "The routing number was not recognized. Please verify the routing number is correct before you proceed. If the routing number is wrong, the payment may be returned."
+          }
+        },
+        "accountNumber": {
+          "label": "Account No.",
+          "errorMessages": {
+            "pattern": "Account number must contain only digits",
+            "required": "Account number is required"
+          }
+        },
+        "recipient": {
+          "label": "The recipient is",
+          "personTitle": "A person",
+          "businessTitle": "A business",
+          "notSureTitle": "I'm not sure"
+        },
+        "saveCounterparty": {
+          "label": "Save contact for future transactions"
+        }
+      }
+    },
+    "counterpartyAddedStage": {
+      "successMessage": {
+        "firstLine": "New recipient was",
+        "secondLine": "added successfully!"
+      }
+    },
+    "enterAmountStage": {
+      "title": "",
+      "nextButton": "Continue",
+      "backButton": "Back",
+      "input": {
+        "title": "Amount",
+        "balance": {
+          "validMessage": "Available Balance",
+          "errorMessage": "Exceeding the available balance of"
+        }
+      }
+    },
+    "reviewStage": {
+      "title": "Review payment",
+      "nextButton": "Complete payment",
+      "backButton": "Back",
+      "footnote": {
+        "regularText": "Funds will be available",
+        "boldText": "in 1-3 business days"
       },
-      "sensitiveDataButton": {
-        "show": "Show Details",
-        "hide": "Hide Details"
+      "descriptionList": {
+        "amount": "Amount",
+        "date": "Date",
+        "fee": "Fee"
       },
-      "menuItems": {
-        "title": "Manage Card",
-        "freeze": "Freeze",
-        "close": "Close Card",
-        "unfreeze": "Unfreeze",
-        "managePin": "Manage PIN",
-        "replace": "Replace Card",
-        "lostOrStolen": "Report Lost or Stolen",
-        "addToWallet": "Manage {{walletName}} Wallet"
-      },
-      "actions": {
-        "common": {
-          "proceedButton": "Proceed",
-          "backButton": "Back",
-          "errorResponse": {
-            "title": "Something went wrong",
-            "description": "Please try again later"
-          }
+      "input": {
+        "label": "Description (optional)",
+        "note": "Visible to the recipient"
+      }
+    },
+    "completedStage": {
+      "messages": {
+        "pendingMessage": {
+          "title": "Payment created",
+          "subtitle": "Transfer expected by {{date}}"
         },
-        "activate": {
-          "overlayButton": "Activate",
-          "form": {
-            "flowTitle": "Card Activation",
-            "mainTitle": "Activate your card",
-            "description": "Provide your card details below",
-            "expirationDate": {
-              "label": "Expiration Date",
-              "errorMessages": {
-                "required": "Required",
-                "expirationDate": "The expiration date is invalid"
-              }
-            },
-            "cvv2": {
-              "label": "CVV2",
-              "errorMessages": {
-                "required": "Required",
-                "securityCode": "The security code is invalid"
-              }
-            }
-          },
-          "response": {
-            "title": "The card has been activated",
-            "description": "Taking you to set up your Pin"
-          }
+        "errorMessage": {
+          "title": "Something went wrong",
+          "subtitle": "Please try again later"
         },
-        "freeze": {
-          "flowTitle": "Freeze card",
-          "mainTitle": "Are you sure you want to freeze this card?",
-          "description": "You won’t be able to use your card while it is frozen, but you can unfreeze it at any time."
-        },
-        "unfreeze": {
-          "flowTitle": "Unfreeze card",
-          "mainTitle": "Are you sure you want to unfreeze this card?"
-        },
-        "managePin": {
-          "flowTitle": "Manage PIN",
-          "setPin": {
-            "mainTitle": "Set your new card PIN",
-            "enterPin": {
-              "label": "Enter a four digit PIN code",
-              "errorMessages": {
-                "required": "Required",
-                "pattern": "Make sure the PIN includes digits only"
-              }
-            },
-            "reenterPin": {
-              "label": "Validate PIN",
-              "errorMessages": {
-                "required": "Required",
-                "pattern": "Make sure the PIN includes digits only",
-                "comparison": "Make sure to enter the same PIN number"
-              }
-            },
-            "response": {
-              "title": "Your card PIN is set",
-              "description": "Your card is ready for use"
-            }
-          },
-          "changePin": {
-            "mainTitle": "Change your PIN",
-            "currentPin": {
-              "label": "Your current PIN",
-              "errorMessages": {
-                "required": "Required",
-                "pattern": "Make sure the PIN includes digits only"
-              }
-            },
-            "newPin": {
-              "label": "New PIN code",
-              "errorMessages": {
-                "required": "Required",
-                "pattern": "Make sure the PIN includes digits only"
-              }
-            },
-            "newPinConfirm": {
-              "label": "Confirm new PIN",
-              "errorMessages": {
-                "required": "Required",
-                "pattern": "Make sure the PIN includes digits only",
-                "comparison": "Make sure to enter the same PIN number"
-              }
-            },
-            "response": {
-              "title": "Your card PIN is set"
-            }
-          }
-        },
-        "replace": {
-          "flowTitle": "Replace card",
-          "mainTitle": "Confirm shipping address",
-          "description": "Your card will be shipped to this address in 5-7 business days",
-          "formButton": "Change address",
-          "form": {
-            "title": "Update your shipping address",
-            "subtitle": "Your card will be shipped to this address in 5-7 business days",
-            "submitButton": "Confirm address",
-            "street": {
-              "label": "Street address",
-              "errorMessages": {
-                "required": "Please enter your street address"
-              }
-            },
-            "street2": {
-              "label": "Apt, Suite, Unit"
-            },
-            "city": {
-              "label": "City",
-              "errorMessages": {
-                "required": "Please enter your city"
-              }
-            },
-            "state": {
-              "label": "State",
-              "errorMessages": {
-                "required": "Please select your state"
-              }
-            },
-            "postalCode": {
-              "label": "Zip code",
-              "errorMessages": {
-                "required": "Please enter your zip code",
-                "pattern": "Zip code must be 5 or 9 digits long"
-              }
-            }
-          },
-          "response": {
-            "title": "Your replacement card is on the way",
-            "description": "Expect your card to arrive in 5-7 business days"
-          }
-        },
-        "report": {
-          "flowTitle": "Report card",
-          "mainTitle": "Report card ending with {{maskedCardNumberLast4Digits}}",
-          "description": "What happened to your card?",
-          "confirmationTitle": "Are you sure you want to report this card?",
-          "confirmationDescription": "Reporting your card will close it permanently.",
-          "radioButtons": {
-            "lost": "My card was lost",
-            "stolen": "My card was stolen"
-          },
-          "admonition": {
-            "description": "A Lost or Stolen card will be permanently closed.",
-            "link": "Learn more"
-          },
-          "response": {
-            "title": "Your card was closed",
-            "description": {
-              "lost": "Your card was reported Lost and you won't be able to make transactions using it",
-              "stolen": "Your card was reported Stolen and you won't be able to make transactions using it"
-            }
-          }
-        },
-        "close": {
-          "flowTitle": "Close card",
-          "mainTitle": "Are you sure you want to close card ending with {{maskedCardNumberLast4Digits}}?",
-          "description": "You won't be able to activate this card later",
-          "admonition": {
-            "description": "Closing this card is permanent and cannot be reversed.",
-            "link": "Learn more"
-          },
-          "response": {
-            "title": "Your card is closed",
-            "description": "It can no longer be used"
-          }
-        },
-        "addToWallet": {
-          "flowTitle": "Mobile wallet",
-          "mainTitle": "Add your card to {{walletName}} wallet",
-          "description": "Add your card for easy payment with the wallet app anywhere.",
-          "response": {
-            "title": "Your card was successfully added to {{walletName}} wallet"
+        "rejectedMessages": {
+          "title": "The payment could not be sent",
+          "subtitle": {
+            "accountClosed": "The recipient's account has been closed",
+            "accountFrozen": "The recipient's account has been frozen",
+            "insufficientFunds": "The recipient's account has insufficient funds",
+            "dailyAchCreditLimitExceeded": "**** exceeds your daily / monthly limit"
           }
         }
       }
     },
-    "elementsAccount": {
-      "title": "{{accountPurposeWords}} {{maskedAccountNumber}}",
-      "availableBalance": "Available Balance",
-      "creditBalance": "Credit Balance",
-      "accountActions": {
-        "title": "Account Actions",
-        "accountDetails": "Account Details",
-        "accountStatements": "Account Statements",
-        "bankVerificationLetter": "Bank Verification Letter"
-      },
-      "accountDetails": {
-        "title": "Account {{maskedAccountNumber}}",
-        "subtitle": "{{accountName}}",
-        "accountOwner": "Account owner",
-        "accountNumber": "Account number",
-        "accountRoutingNumber": "Routing number",
-        "accountPurpose": "Account Purpose",
-        "bank": "Bank"
-      },
-      "accountStatements": {
-        "title": "Account Statements",
-        "subtitle": "Download account statement for account ending with #{{accountNumberLast4Digits}}",
-        "downloadStatementButton": "Save Statement",
-        "downloadStatementErrorMessage": "Download failed , try again later",
-        "emptyStatementsMessage": "There are no account statements available"
-      },
-      "accountList": {
-        "title": "Switch Account",
-        "accountTitle": "{{accountPurposeWords}} {{maskedAccountNumber}}",
-        "accountSubtitle": "{{accountName}}"
-      }
-    },
-    "elementsAchDebit": {
-      "flowTitle": "Fund my account",
+    "withPlaid": {
+      "flowTitle": "Make Payment",
       "accountsListStage": {
-        "title": "Pull funds to",
-        "listTitle": "Select destination account",
-        "backButton": "Back",
-        "destination": "Destination account"
+        "title": "Pull funds from"
       },
       "counterpartiesListStage": {
-        "title": "Pull funds from",
-        "addButton": "New account"
+        "title": "Push funds to",
+        "backButton": "Back",
+        "listTitle": "Select destination account",
+        "addButton": "New account",
+        "destination": "Destination account"
       },
       "emptyListStage": {
-        "title": "Pull funds from",
-        "nextButton": "Connect New Account",
+        "title": "Send payment to",
+        "nextButton": "Add New Recipient",
+        "backButton": "Back",
+        "destination": "Destination account",
         "message": {
-          "title": "Connect your first account",
-          "subtitle": "Log in instantly and securely to your accounts, no matter in which bank. This will allow you to transfer money and fund your account"
+          "title": "You haven’t added any accounts",
+          "subtitle": "Easily add your first account and transfer money easily & quickly"
         }
       },
       "counterpartyAddedStage": {
@@ -384,132 +579,12 @@
         },
         "descriptionList": {
           "amount": "Amount",
-          "fee": "Fee",
-          "date": "Transaction Date"
-        },
-        "input": {
-          "label": "Description (optional)",
-          "note": "Visible to the recipient"
-        }
-      },
-      "completedStage": {
-        "messages": {
-          "pendingMessage": {
-            "title": "Account funded with ${{amount}}",
-            "subtitle": "Transfer expected by {{date}}"
-          },
-          "errorMessage": {
-            "title": "Something went wrong",
-            "subtitle": "Please try again later"
-          },
-          "rejectedMessages": {
-            "title": "The transfer could not be sent",
-            "subtitle": {
-              "accountClosed": "The recipient's account has been closed",
-              "accountFrozen": "The recipient's account has been frozen",
-              "insufficientFunds": "The recipient's account has insufficient funds"
-            }
-          }
-        }
-      }
-    },
-    "elementsAchCredit": {
-      "flowTitle": "",
-      "accountsListStage": {
-        "title": "Send payment from"
-      },
-      "counterpartiesListStage": {
-        "title": "Send payment to",
-        "backButton": "Back",
-        "listTitle": "Select destination recipient",
-        "addButton": "New recipient",
-        "destination": "Destination recipient"
-      },
-      "emptyListStage": {
-        "title": "Send payment to",
-        "nextButton": "Add New Recipient",
-        "backButton": "Back",
-        "destination": "Destination recipient",
-        "message": {
-          "title": "You haven’t added any recipients",
-          "subtitle": "Easily add your first recipient and transfer money easily & quickly"
-        }
-      },
-      "addNewCounterpartyStage": {
-        "title": "New recipient",
-        "nextButton": "Continue",
-        "backButton": "Back",
-        "form": {
-          "fullName": {
-            "label": "Full Name",
-            "errorMessages": {
-              "minLength": "Full name must contain at least 2 letters",
-              "required": "Full name is required"
-            }
-          },
-          "routingNumber": {
-            "label": "Routing No.",
-            "errorMessages": {
-              "pattern": "Routing number must be 9 digits long",
-              "required": "Routing number is required"
-            },
-            "unknownInstitution": {
-              "message": "Unknown Institution",
-              "tooltip": "The routing number was not recognized. Please verify the routing number is correct before you proceed. If the routing number is wrong, the payment may be returned."
-            }
-          },
-          "accountNumber": {
-            "label": "Account No.",
-            "errorMessages": {
-              "pattern": "Account number must contain only digits",
-              "required": "Account number is required"
-            }
-          },
-          "recipient": {
-            "label": "The recipient is",
-            "personTitle": "A person",
-            "businessTitle": "A business",
-            "notSureTitle": "I'm not sure"
-          },
-          "saveCounterparty": {
-            "label": "Save contact for future transactions"
-          }
-        }
-      },
-      "counterpartyAddedStage": {
-        "successMessage": {
-          "firstLine": "New recipient was",
-          "secondLine": "added successfully!"
-        }
-      },
-      "enterAmountStage": {
-        "title": "",
-        "nextButton": "Continue",
-        "backButton": "Back",
-        "input": {
-          "title": "Amount",
-          "balance": {
-            "validMessage": "Available Balance",
-            "errorMessage": "Exceeding the available balance of"
-          }
-        }
-      },
-      "reviewStage": {
-        "title": "Review payment",
-        "nextButton": "Complete payment",
-        "backButton": "Back",
-        "footnote": {
-          "regularText": "Funds will be available",
-          "boldText": "in 1-3 business days"
-        },
-        "descriptionList": {
-          "amount": "Amount",
-          "date": "Date",
+          "date": "Transaction Date",
           "fee": "Fee"
         },
         "input": {
           "label": "Description (optional)",
-          "note": "Visible to the recipient"
+          "note": "Visible to the account"
         }
       },
       "completedStage": {
@@ -523,7 +598,7 @@
             "subtitle": "Please try again later"
           },
           "rejectedMessages": {
-            "title": "The payment could not be sent",
+            "title": "The transfer could not be sent",
             "subtitle": {
               "accountClosed": "The recipient's account has been closed",
               "accountFrozen": "The recipient's account has been frozen",
@@ -532,381 +607,306 @@
             }
           }
         }
-      },
-      "withPlaid": {
-        "flowTitle": "Make Payment",
-        "accountsListStage": {
-          "title": "Pull funds from"
-        },
-        "counterpartiesListStage": {
-          "title": "Push funds to",
-          "backButton": "Back",
-          "listTitle": "Select destination account",
-          "addButton": "New account",
-          "destination": "Destination account"
-        },
-        "emptyListStage": {
-          "title": "Send payment to",
-          "nextButton": "Add New Recipient",
-          "backButton": "Back",
-          "destination": "Destination account",
-          "message": {
-            "title": "You haven’t added any accounts",
-            "subtitle": "Easily add your first account and transfer money easily & quickly"
-          }
-        },
-        "counterpartyAddedStage": {
-          "successMessage": {
-            "firstLine": "New account was",
-            "secondLine": "connected successfully!"
-          }
-        },
-        "enterAmountStage": {
-          "title": "New transfer",
-          "nextButton": "Continue",
-          "backButton": "Back",
-          "input": {
-            "title": "Amount"
-          }
-        },
-        "reviewStage": {
-          "title": "Review transfer",
-          "nextButton": "Complete payment",
-          "backButton": "Back",
-          "footnote": {
-            "regularText": "Funds will be available",
-            "boldText": "in 1-3 business days"
-          },
-          "descriptionList": {
-            "amount": "Amount",
-            "date": "Transaction Date",
-            "fee": "Fee"
-          },
-          "input": {
-            "label": "Description (optional)",
-            "note": "Visible to the account"
-          }
-        },
-        "completedStage": {
-          "messages": {
-            "pendingMessage": {
-              "title": "Payment created",
-              "subtitle": "Transfer expected by {{date}}"
-            },
-            "errorMessage": {
-              "title": "Something went wrong",
-              "subtitle": "Please try again later"
-            },
-            "rejectedMessages": {
-              "title": "The transfer could not be sent",
-              "subtitle": {
-                "accountClosed": "The recipient's account has been closed",
-                "accountFrozen": "The recipient's account has been frozen",
-                "insufficientFunds": "The recipient's account has insufficient funds",
-                "dailyAchCreditLimitExceeded": "**** exceeds your daily / monthly limit"
-              }
-            }
-          }
+      }
+    }
+  },
+  "elementsBookPayment": {
+    "flowTitle": "",
+    "accountsListStage": {
+      "title": "Send payment from"
+    },
+    "counterpartiesListStage": {
+      "title": "Send payment to",
+      "listTitle": "Select destination account",
+      "backButton": "Back",
+      "destination": "Destination account"
+    },
+    "enterAmountStage": {
+      "title": "",
+      "nextButton": "Continue",
+      "backButton": "Back",
+      "input": {
+        "title": "Amount",
+        "balance": {
+          "validMessage": "Available Balance",
+          "errorMessage": "Exceeding the available balance of"
         }
       }
     },
-    "elementsBookPayment": {
-      "flowTitle": "",
-      "accountsListStage": {
-        "title": "Send payment from"
+    "reviewStage": {
+      "title": "Review transfer",
+      "nextButton": "Complete payment",
+      "backButton": "Back",
+      "footnote": {
+        "regularText": "Funds will be available",
+        "boldText": "immediately"
       },
-      "counterpartiesListStage": {
-        "title": "Send payment to",
-        "listTitle": "Select destination account",
-        "backButton": "Back",
-        "destination": "Destination account"
-      },
-      "enterAmountStage": {
-        "title": "",
-        "nextButton": "Continue",
-        "backButton": "Back",
-        "input": {
-          "title": "Amount",
-          "balance": {
-            "validMessage": "Available Balance",
-            "errorMessage": "Exceeding the available balance of"
-          }
-        }
-      },
-      "reviewStage": {
-        "title": "Review transfer",
-        "nextButton": "Complete payment",
-        "backButton": "Back",
-        "footnote": {
-          "regularText": "Funds will be available",
-          "boldText": "immediately"
-        },
-        "descriptionList": {
-          "amount": "Amount",
-          "date": "Transaction Date"
-        },
-        "input": {
-          "label": "Description (optional)",
-          "note": "Visible to the recipient"
-        }
-      },
-      "completedStage": {
-        "messages": {
-          "sentMessage": {
-            "title": "You've sent ${{amount}} to {{counterparty}}",
-            "subtitle": ""
-          },
-          "errorMessage": {
-            "title": "Something went wrong!",
-            "subtitle": "Please try again later"
-          },
-          "rejectedMessages": {
-            "title": "The payment could not be sent",
-            "subtitle": {
-              "accountClosed": "The recipient's account has been closed",
-              "accountFrozen": "The recipient's account has been frozen",
-              "insufficientFunds": "The recipient's account has insufficient funds"
-            }
-          }
-        }
-      }
-    },
-    "elementsFundAccount": {
-      "flowTitle": "Fund my account",
-      "accountsListStage": {
-        "title": "Push funds to",
-        "backButton": "Back",
-        "destination": "Destination account"
-      },
-      "counterpartiesListStage": {
-        "title": "Pull funds from",
-        "addButton": "New card"
-      },
-      "emptyListStage": {
-        "title": "Pull funds from",
-        "nextButton": "Add New Card",
-        "message": {
-          "title": "Connect a Debit card",
-          "subtitle": "Instantly fund your account by connecting your card"
-        }
-      },
-      "counterpartyAddedStage": {
-        "successMessage": {
-          "firstLine": "New card was added",
-          "secondLine": "successfully!"
-        }
-      },
-      "enterAmountStage": {
-        "title": "Push funds to",
-        "nextButton": "Continue",
-        "backButton": "Back",
-        "input": {
-          "title": "Amount"
-        }
-      },
-      "reviewStage": {
-        "title": "Review payment",
-        "nextButton": "Complete payment",
-        "backButton": "Back",
-        "footnote": {
-          "regularText": "Funds will be available",
-          "boldText": "immediately"
-        },
-        "descriptionList": {
-          "amount": "Amount",
-          "fee": "fee",
-          "date": "Transaction Date"
-        },
-        "input": {
-          "label": "Description (optional)",
-          "note": "Visible to the recipient"
-        }
-      },
-      "completedStage": {
-        "messages": {
-          "pendingMessage": {
-            "title": "Account funded with ${{amount}}",
-            "subtitle": "Transfer expected by {{date}}"
-          },
-          "errorMessage": {
-            "title": "Something went wrong",
-            "subtitle": "Please try again later"
-          },
-          "rejectedMessages": {
-            "title": "The payment could not be sent",
-            "subtitle": {
-              "accountClosed": "The recipient's account has been closed",
-              "accountFrozen": "The recipient's account has been frozen",
-              "insufficientFunds": "The recipient's account has insufficient funds"
-            }
-          }
-        }
-      },
-      "addNewCounterpartyStage": {
-        "title": "Pull funds from",
-        "nextButton": "Complete payment",
-        "backButton": "Back",
-        "note": "The card will be saved for future payments",
-        "loaderInfo": "Loading...",
-        "form": {
-          "title": "Connect a new debit card",
-          "sensitiveFields": {
-            "firstName": {
-              "label": "First Name",
-              "errorMessages": {
-                "required": "Required"
-              }
-            },
-            "lastName": {
-              "label": "Last Name",
-              "errorMessages": {
-                "required": "Required"
-              }
-            },
-            "cardNumber": {
-              "label": "Card Number",
-              "errorMessages": {
-                "required": "Required",
-                "cardNumber": "is not a valid card number"
-              }
-            },
-            "expirationDate": {
-              "label": "Expiration Date",
-              "errorMessages": {
-                "required": "Required",
-                "expirationDate": "is not a valid expiration date"
-              }
-            },
-            "cvv2": {
-              "label": "CVV2",
-              "errorMessages": {
-                "required": "Required",
-                "securityCode": "is not a valid security code"
-              }
-            }
-          },
-          "nonSensitiveFields": {
-            "street": {
-              "label": "Street address",
-              "errorMessages": {
-                "required": "Please enter your street address"
-              }
-            },
-            "city": {
-              "label": "City",
-              "errorMessages": {
-                "required": "Please enter your city"
-              }
-            },
-            "state": {
-              "label": "State",
-              "errorMessages": {
-                "required": "Please select your state"
-              }
-            },
-            "postalCode": {
-              "label": "Zip code",
-              "errorMessages": {
-                "required": "Please enter your zip code",
-                "pattern": "Zip code must be 5 or 9 digits long"
-              }
-            }
-          }
-        }
-      }
-    },
-    "elementsCheckDeposit": {
-      "enterAmount": {
-        "actionTitle": "Check Deposit",
-        "actionSubtitle": "New Check",
-        "fromTitle": "Check Deposit",
-        "amountTitle": "Check amount",
-        "dailyLimitWarning": "Exceeding the daily limit of ",
-        "monthlyLimitWarning": "Exceeding the monthly limit of ",
-        "nextButton": "Continue"
-      },
-      "frontGuide": {
-        "title": "Mobile Check Deposit Guide",
-        "placement": "Place the check on a dark surface, in a well lit area",
-        "center": "Center the check within the photo borders",
-        "hold": "Hold still, we’ll capture the photo for you",
-        "backButton": "Back",
-        "nextButton": "I’m ready"
-      },
-      "backGuide": {
-        "description": "Your {{brandName}} bank account is managed by {{bankName}}",
-        "instruction": "Please make sure to sign the back and write",
-        "writeOnBack": "“For mobile deposit at {{bankName}}“",
-        "nextButton": "Got it"
-      },
-      "checkScan": {
-        "frontTitle": "Front",
-        "backTitle": "Back",
-        "messages": {
-          "firstMessage": "Make sure to place the check on a dark, flat surface",
-          "errorFourCorners": "Make sure all 4 corners of the check are inside the borders",
-          "errorTooClose": "Move the camera further away from your check",
-          "errorTooFar": "Move the camera closer to your check",
-          "errorNotCentered": "Center your document on a dark background",
-          "errorTooDark": "There is not enough light on your check",
-          "errorLowContrast": "Center your document on a dark background"
-        }
-      },
-      "checkImageReview": {
-        "frontTitle": "Front",
-        "backTitle": "Back",
-        "retake": "Retake",
-        "use": "Use"
-      },
-      "checkDepositReview": {
-        "actionTitle": "Check Deposit",
-        "actionSubtitle": "Review deposit",
-        "fromTitle": "Check Deposit",
+      "descriptionList": {
         "amount": "Amount",
-        "fee": "Fee",
-        "date": "Date",
-        "front": "Front",
-        "back": "Back",
-        "description": "Description (optional)",
-        "nextButton": "Authorize deposit",
-        "backButton": "Back"
+        "date": "Transaction Date"
       },
-      "success": {
-        "actionTitle": "Check deposit submitted",
-        "actionSubtitle": "Deposit to {{accountPurpose}} account",
-        "processing": "Processing",
-        "confirmationNumber": "Confirmation #",
-        "infoMessage": "Make sure to keep your check for 14 days or until it clears",
-        "nextButton": "Deposit another check"
-      },
-      "failure": {
-        "actionTitle": "Something went wrong",
-        "actionSubtitle": "Please try again later",
-        "backButton": "Back"
+      "input": {
+        "label": "Description (optional)",
+        "note": "Visible to the recipient"
       }
     },
-    "elementsActivity": {
-      "activityTable": {
-        "title": "Account Activity",
-        "tableSubTitle": {
-          "pending": "Pending",
-          "recentActivity": "Recent Activity"
+    "completedStage": {
+      "messages": {
+        "sentMessage": {
+          "title": "You've sent ${{amount}} to {{counterparty}}",
+          "subtitle": ""
         },
-        "columns": {
-          "createdAt": "Date",
-          "summary": "Description",
-          "type": "Type",
-          "amount": "Amount",
-          "account": "Account"
+        "errorMessage": {
+          "title": "Something went wrong!",
+          "subtitle": "Please try again later"
         },
-        "messages": {
-          "filterTooNarrow": "Your filter settings are too narrow, try again.",
-          "noActivity": "There was no activity in your account."
-        },
-        "backToTop": "Back to top"
+        "rejectedMessages": {
+          "title": "The payment could not be sent",
+          "subtitle": {
+            "accountClosed": "The recipient's account has been closed",
+            "accountFrozen": "The recipient's account has been frozen",
+            "insufficientFunds": "The recipient's account has insufficient funds"
+          }
+        }
+      }
+    }
+  },
+  "elementsFundAccount": {
+    "flowTitle": "Fund my account",
+    "accountsListStage": {
+      "title": "Push funds to",
+      "backButton": "Back",
+      "destination": "Destination account"
+    },
+    "counterpartiesListStage": {
+      "title": "Pull funds from",
+      "addButton": "New card"
+    },
+    "emptyListStage": {
+      "title": "Pull funds from",
+      "nextButton": "Add New Card",
+      "message": {
+        "title": "Connect a Debit card",
+        "subtitle": "Instantly fund your account by connecting your card"
+      }
+    },
+    "counterpartyAddedStage": {
+      "successMessage": {
+        "firstLine": "New card was added",
+        "secondLine": "successfully!"
+      }
+    },
+    "enterAmountStage": {
+      "title": "Push funds to",
+      "nextButton": "Continue",
+      "backButton": "Back",
+      "input": {
+        "title": "Amount"
+      }
+    },
+    "reviewStage": {
+      "title": "Review payment",
+      "nextButton": "Complete payment",
+      "backButton": "Back",
+      "footnote": {
+        "regularText": "Funds will be available",
+        "boldText": "immediately"
       },
-      "activityRecord": {
-        "paidBy": "Paid by",
+      "descriptionList": {
+        "amount": "Amount",
+        "fee": "fee",
+        "date": "Transaction Date"
+      },
+      "input": {
+        "label": "Description (optional)",
+        "note": "Visible to the recipient"
+      }
+    },
+    "completedStage": {
+      "messages": {
+        "pendingMessage": {
+          "title": "Account funded with ${{amount}}",
+          "subtitle": "Transfer expected by {{date}}"
+        },
+        "errorMessage": {
+          "title": "Something went wrong",
+          "subtitle": "Please try again later"
+        },
+        "rejectedMessages": {
+          "title": "The payment could not be sent",
+          "subtitle": {
+            "accountClosed": "The recipient's account has been closed",
+            "accountFrozen": "The recipient's account has been frozen",
+            "insufficientFunds": "The recipient's account has insufficient funds"
+          }
+        }
+      }
+    },
+    "addNewCounterpartyStage": {
+      "title": "Pull funds from",
+      "nextButton": "Complete payment",
+      "backButton": "Back",
+      "note": "The card will be saved for future payments",
+      "loaderInfo": "Loading...",
+      "form": {
+        "title": "Connect a new debit card",
+        "sensitiveFields": {
+          "firstName": {
+            "label": "First Name",
+            "errorMessages": {
+              "required": "Required"
+            }
+          },
+          "lastName": {
+            "label": "Last Name",
+            "errorMessages": {
+              "required": "Required"
+            }
+          },
+          "cardNumber": {
+            "label": "Card Number",
+            "errorMessages": {
+              "required": "Required",
+              "cardNumber": "is not a valid card number"
+            }
+          },
+          "expirationDate": {
+            "label": "Expiration Date",
+            "errorMessages": {
+              "required": "Required",
+              "expirationDate": "is not a valid expiration date"
+            }
+          },
+          "cvv2": {
+            "label": "CVV2",
+            "errorMessages": {
+              "required": "Required",
+              "securityCode": "is not a valid security code"
+            }
+          }
+        },
+        "nonSensitiveFields": {
+          "street": {
+            "label": "Street address",
+            "errorMessages": {
+              "required": "Please enter your street address"
+            }
+          },
+          "city": {
+            "label": "City",
+            "errorMessages": {
+              "required": "Please enter your city"
+            }
+          },
+          "state": {
+            "label": "State",
+            "errorMessages": {
+              "required": "Please select your state"
+            }
+          },
+          "postalCode": {
+            "label": "Zip code",
+            "errorMessages": {
+              "required": "Please enter your zip code",
+              "pattern": "Zip code must be 5 or 9 digits long"
+            }
+          }
+        }
+      }
+    }
+  },
+  "elementsCheckDeposit": {
+    "enterAmount": {
+      "actionTitle": "Check Deposit",
+      "actionSubtitle": "New Check",
+      "fromTitle": "Check Deposit",
+      "amountTitle": "Check amount",
+      "dailyLimitWarning": "Exceeding the daily limit of ",
+      "monthlyLimitWarning": "Exceeding the monthly limit of ",
+      "nextButton": "Continue"
+    },
+    "frontGuide": {
+      "title": "Mobile Check Deposit Guide",
+      "placement": "Place the check on a dark surface, in a well lit area",
+      "center": "Center the check within the photo borders",
+      "hold": "Hold still, we’ll capture the photo for you",
+      "backButton": "Back",
+      "nextButton": "I’m ready"
+    },
+    "backGuide": {
+      "description": "Your {{brandName}} bank account is managed by {{bankName}}",
+      "instruction": "Please make sure to sign the back and write",
+      "writeOnBack": "“For mobile deposit at {{bankName}}“",
+      "nextButton": "Got it"
+    },
+    "checkScan": {
+      "frontTitle": "Front",
+      "backTitle": "Back",
+      "messages": {
+        "firstMessage": "Make sure to place the check on a dark, flat surface",
+        "errorFourCorners": "Make sure all 4 corners of the check are inside the borders",
+        "errorTooClose": "Move the camera further away from your check",
+        "errorTooFar": "Move the camera closer to your check",
+        "errorNotCentered": "Center your document on a dark background",
+        "errorTooDark": "There is not enough light on your check",
+        "errorLowContrast": "Center your document on a dark background"
+      }
+    },
+    "checkImageReview": {
+      "frontTitle": "Front",
+      "backTitle": "Back",
+      "retake": "Retake",
+      "use": "Use"
+    },
+    "checkDepositReview": {
+      "actionTitle": "Check Deposit",
+      "actionSubtitle": "Review deposit",
+      "fromTitle": "Check Deposit",
+      "amount": "Amount",
+      "fee": "Fee",
+      "date": "Date",
+      "front": "Front",
+      "back": "Back",
+      "description": "Description (optional)",
+      "nextButton": "Authorize deposit",
+      "backButton": "Back"
+    },
+    "success": {
+      "actionTitle": "Check deposit submitted",
+      "actionSubtitle": "Deposit to {{accountPurpose}} account",
+      "processing": "Processing",
+      "confirmationNumber": "Confirmation #",
+      "infoMessage": "Make sure to keep your check for 14 days or until it clears",
+      "nextButton": "Deposit another check"
+    },
+    "failure": {
+      "actionTitle": "Something went wrong",
+      "actionSubtitle": "Please try again later",
+      "backButton": "Back"
+    }
+  },
+  "elementsActivity": {
+    "activityTable": {
+      "title": "Account Activity",
+      "tableSubTitle": {
+        "pending": "Pending",
+        "recentActivity": "Recent Activity"
+      },
+      "columns": {
+        "createdAt": "Date",
+        "summary": "Description",
+        "type": "Type",
+        "amount": "Amount",
+        "account": "Account"
+      },
+      "messages": {
+        "filterTooNarrow": "Your filter settings are too narrow, try again.",
+        "noActivity": "There was no activity in your account."
+      },
+      "backToTop": "Back to top"
+    },
+    "activityRecord": {
+      "keys": {
         "date": "Date",
         "time": "Time",
         "method": "Method",
@@ -923,52 +923,53 @@
         "atmLocation": "ATM Location",
         "purpose": "Purpose",
         "accountNumber": "Account Number"
-      },
-      "activityFilters": {
-        "title": "Filter",
-        "directionFilter": {
-          "title": "Direction",
-          "all": "All",
-          "received": "Received",
-          "sent": "Sent"
-        },
-        "typeFilter": {
-          "title": "Type",
-          "all": "All",
-          "checks": "Checks",
-          "bankTransfer": "Bank Transfer",
-          "cards": "Cards",
-          "atm": "ATM",
-          "interest": "Interest",
-          "fee": "Fee",
-          "reward": "Reward"
-        },
-        "dateFilter": {
-          "title": "Date",
-          "allTime": "All time",
-          "last7days": "last 7 days",
-          "last30days": "last 30 days",
-          "last3months": "last 3 months",
-          "last6months": "last 6 months",
-          "lastYear": "last year"
-        },
-        "actions": {
-          "clearAll": "Clear All",
-          "applyFilters": "Apply filters"
-        }
       }
     },
-    "elementsMultipleCards": {
-      "title": "Cards",
-      "emptyText": "No cards yet...",
-      "backToTop": "Back to Top",
-      "columns": {
-        "details": "CARD DETAILS",
-        "fullName": "CARD HOLDER",
-        "account": "ACCOUNT",
-        "type": "TYPE",
-        "expirationDate": "EXP. DATE",
-        "status": "STATUS"
+    "activityFilters": {
+      "title": "Filter",
+      "directionFilter": {
+        "title": "Direction",
+        "all": "All",
+        "received": "Received",
+        "sent": "Sent"
+      },
+      "typeFilter": {
+        "title": "Type",
+        "all": "All",
+        "checks": "Checks",
+        "bankTransfer": "Bank Transfer",
+        "cards": "Cards",
+        "atm": "ATM",
+        "interest": "Interest",
+        "fee": "Fee",
+        "reward": "Reward"
+      },
+      "dateFilter": {
+        "title": "Date",
+        "allTime": "All time",
+        "last7days": "last 7 days",
+        "last30days": "last 30 days",
+        "last3months": "last 3 months",
+        "last6months": "last 6 months",
+        "lastYear": "last year"
+      },
+      "actions": {
+        "clearAll": "Clear All",
+        "applyFilters": "Apply filters"
+      }
+    }
+  },
+  "elementsMultipleCards": {
+    "title": "Cards",
+    "emptyText": "No cards yet...",
+    "backToTop": "Back to Top",
+    "columns": {
+      "details": "CARD DETAILS",
+      "fullName": "CARD HOLDER",
+      "account": "ACCOUNT",
+      "type": "TYPE",
+      "expirationDate": "EXP. DATE",
+      "status": "STATUS"
     }
   }
 }
