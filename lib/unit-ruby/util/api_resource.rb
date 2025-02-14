@@ -1,6 +1,6 @@
 module Unit
   class APIResource
-    attr_accessor :id, :type, :raw_data
+    attr_accessor :id, :type, :raw_data, :links
 
     def initialize(attributes = {})
       clear_attributes!
@@ -14,7 +14,7 @@ module Unit
     # Creates a base http connection to the API
     #
     def self.connection
-      @connection ||= Connection.new
+      @connection ||= Connection.new(headers)
     end
 
     # Defines the schema for a resource's attributes
@@ -64,6 +64,21 @@ module Unit
       return @path if route.nil?
 
       @path = route
+    end
+
+    # Sets resource-specific headers
+    #
+    # Usage:
+    #  class Customer < Unit::Resource
+    #      header 'X-Some-Header' => 'Header Value'
+    #  end
+    def self.header(header_key_value_pair)
+      key, value = header_key_value_pair.first
+      headers[key] = value
+    end
+
+    def self.headers
+      @headers ||= {}
     end
 
     def self.resource_path(id)
@@ -149,6 +164,7 @@ module Unit
       self.type = data[:type]
       self.raw_data = data
       self.relationships = data[:relationships]
+      self.links = data[:links]
 
       clear_attributes!
 

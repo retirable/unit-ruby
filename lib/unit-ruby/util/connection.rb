@@ -10,11 +10,12 @@ module Unit
 
     attr_reader :connection
 
-    def initialize
+    def initialize(custom_headers = {})
       @connection = Faraday.new(self.class.base_url) do |f|
         f.headers['UNIT_TRUST_TOKEN'] = self.class.trust_token if self.class.trust_token
         f.headers['Authorization'] = "Bearer #{self.class.api_key}"
         f.headers['Content-Type'] = 'application/vnd.api+json'
+        f.headers.merge!(custom_headers)
         f.request :json # encode req bodies as JSON
         f.request :retry # retry transient failures
         f.response :json # decode response bodies as JSON
