@@ -22,6 +22,7 @@ require 'unit-ruby/types/full_name'
 require 'unit-ruby/types/hash'
 require 'unit-ruby/types/integer'
 require 'unit-ruby/types/phone'
+require 'unit-ruby/types/schedule'
 require 'unit-ruby/types/string'
 
 require 'unit-ruby/ach_payment'
