@@ -20,20 +20,20 @@ module Unit
         return nil if val.nil?
 
         new(
-          start_time: ::Date.parse(val[:start_time]),
-          end_time: ::Date.parse(val[:end_time]),
+          start_time: Unit::Types::Date.cast(val[:start_time]),
+          end_time: Unit::Types::Date.cast(val[:end_time]),
+          next_scheduled_action: Unit::Types::Date.cast(val[:next_scheduled_action]),
           interval: val[:interval],
           day_of_month: val[:day_of_month],
           day_of_week: val[:day_of_week],
           total_number_of_payments: val[:total_number_of_payments],
-          next_scheduled_action: val[:next_scheduled_action]
         )
       end
 
       def as_json_api
         {
-          start_time: start_time&.to_s,
-          end_time: end_time&.to_s,
+          start_time: Unit::Types::Date.as_json_api(start_time),
+          end_time: Unit::Types::Date.as_json_api(end_time),
           interval: interval,
           day_of_month: day_of_month,
           day_of_week: day_of_week,
