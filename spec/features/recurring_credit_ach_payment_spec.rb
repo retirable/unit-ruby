@@ -63,6 +63,7 @@ RSpec.describe Unit::RecurringCreditAchPayment do
     expect(recurring_payment.status).to eq 'Active'
 
     # Delete
-    expect(recurring_payment.destroy).to be_truthy
+    recurring_payment.destroy
+    expect(recurring_payment.status).to eq 'Deleted'
   end
 end

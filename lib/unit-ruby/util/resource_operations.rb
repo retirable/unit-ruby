@@ -100,7 +100,9 @@ module Unit
 
     module Destroy
       def destroy
-        self.class.connection.delete(self.class.resource_path(id))
+        updated_resource = self.class.connection.delete(self.class.resource_path(id))
+
+        update_resource_from_json_api(updated_resource)
       end
     end
   end

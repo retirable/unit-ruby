@@ -55,7 +55,7 @@ module Unit
 
       handle_errors(response)
 
-      true
+      from_json_api(response.body)
     end
 
     # Executes a PATCH request to the API
