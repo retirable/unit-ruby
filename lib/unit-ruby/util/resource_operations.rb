@@ -97,5 +97,13 @@ module Unit
         replace(JSON.parse(json_attributes))
       end
     end
+
+    module Destroy
+      def destroy
+        updated_resource = self.class.connection.delete(self.class.resource_path(id))
+
+        update_resource_from_json_api(updated_resource)
+      end
+    end
   end
 end

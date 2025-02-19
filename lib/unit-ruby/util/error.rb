@@ -10,5 +10,9 @@ module Unit
 
       super(@details)
     end
+
+    def to_s
+      "#{@status} #{@message}: #{@details}"
+    end
   end
 end

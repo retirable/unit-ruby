@@ -59,4 +59,19 @@ module Factory
       account: deposit_account
     )
   end
+
+  def self.create_ach_counterparty(customer)
+    random_user_id = rand(10**9).to_s.rjust(9, '0')
+
+    Unit::AchCounterparty.create(
+      name: 'Test Counterparty',
+      routing_number: '876543210',
+      account_number: '123456789',
+      account_type: 'Checking',
+      type: 'Person',
+      customer: customer,
+      idempotency_key: "ach-counterparty-#{random_user_id}",
+      tags: { userId: random_user_id }
+    )
+  end
 end

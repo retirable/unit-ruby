@@ -47,6 +47,17 @@ module Unit
       from_json_api(response.body)
     end
 
+    # Executes a DELETE request to the API
+    #
+    # @return boolean
+    def delete(path)
+      response = connection.delete(path)
+
+      handle_errors(response)
+
+      from_json_api(response.body)
+    end
+
     # Executes a PATCH request to the API
     def patch(path, data = nil)
       response = connection.patch do |req|
