@@ -14,7 +14,7 @@ RSpec.describe Unit::AchCounterparty do
     counterparty = Unit::AchCounterparty.create(
       idempotency_key: SecureRandom.uuid,
       name: 'Jane Doe',
-      routing_number: '812345678',
+      routing_number: '021000021',
       account_number: '12345569',
       account_type: 'Checking',
       type: 'Person',
@@ -23,7 +23,8 @@ RSpec.describe Unit::AchCounterparty do
     )
 
     expect(counterparty.name).to eq 'Jane Doe'
-    expect(counterparty.routing_number).to eq '812345678'
+    expect(counterparty.bank).to eq 'Jpmorgan Chase Bank'
+    expect(counterparty.routing_number).to eq '021000021'
     expect(counterparty.account_number).to eq '12345569'
     expect(counterparty.account_type).to eq 'Checking'
     expect(counterparty.type).to eq 'Person'
