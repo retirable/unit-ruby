@@ -6,6 +6,7 @@ module Unit
     attribute :tags, Types::Hash # Optional
 
     attribute :name, Types::String # Name of the account holder
+    attribute :bank, Types::String # Bank name
     attribute :created_at, Types::DateTime
     attribute :routing_number, Types::String # Routing number of account.
     attribute :account_number, Types::String # Account number, together with the routingNumber forms the identifier of the account on the ACH network.
