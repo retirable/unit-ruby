@@ -65,7 +65,7 @@ module Factory
 
     Unit::AchCounterparty.create(
       name: 'Test Counterparty',
-      routing_number: '876543210',
+      routing_number: '021000021',
       account_number: '123456789',
       account_type: 'Checking',
       type: 'Person',
