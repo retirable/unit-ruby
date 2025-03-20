@@ -21,6 +21,7 @@ require 'unit-ruby/types/hash'
 require 'unit-ruby/types/integer'
 require 'unit-ruby/types/phone'
 require 'unit-ruby/types/string'
+require 'unit-ruby/types/wire_counterparty'
 
 require 'unit-ruby/ach_counterparty'
 require 'unit-ruby/ach_payment'
@@ -46,6 +47,7 @@ require 'unit-ruby/purchase_authorization_request'
 require 'unit-ruby/statement'
 require 'unit-ruby/transaction'
 require 'unit-ruby/version'
+require 'unit-ruby/wire_payment'
 
 module Unit
   # Usage:
