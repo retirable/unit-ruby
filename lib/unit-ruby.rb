@@ -48,6 +48,8 @@ require 'unit-ruby/statement'
 require 'unit-ruby/transaction'
 require 'unit-ruby/version'
 require 'unit-ruby/wire_payment'
+require 'unit-ruby/received_payment'
+require 'unit-ruby/reprocess_received_payment'
 
 module Unit
   # Usage:
