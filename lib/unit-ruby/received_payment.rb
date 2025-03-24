@@ -18,8 +18,8 @@ module Unit
 
     belongs_to :account, class_name: 'Unit::DepositAccount'
     belongs_to :customer, class_name: 'Unit::IndividualCustomer' # Optional
-    belongs_to :receivePaymentTransaction, 'Unit::Transaction' # Optional
-    belongs_to :paymentAdvanceTransaction, 'Unit::Transaction' # Optional
-    belongs_to :repayPaymentAdvanceTransaction, 'Unit::Transaction' # Optional
+    belongs_to :receivePaymentTransaction, class_name: 'Unit::Transaction' # Optional
+    belongs_to :paymentAdvanceTransaction, class_name: 'Unit::Transaction' # Optional
+    belongs_to :repayPaymentAdvanceTransaction, class_name: 'Unit::Transaction' # Optional
   end
 end
