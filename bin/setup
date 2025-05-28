@@ -3,6 +3,12 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
+# Copy .env.example to .env if .env doesn't exist
+if [ ! -f .env ] && [ -f .env.example ]; then
+  cp .env.example .env
+  echo "Created .env from .env.example"
+fi
+
 bundle install
 
-# Do any other automated setup that you need to do here
+echo "Setup complete"
