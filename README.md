@@ -1,6 +1,6 @@
 # Unit Ruby
 
-![Gem Version](https://img.shields.io/gem/v/unit-ruby)
+[![Gem Version](https://img.shields.io/gem/v/unit-ruby)](https://rubygems.org/gems/unit-ruby/)
 [![Ruby](https://github.com/retirable/unit-ruby/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/retirable/unit-ruby/actions/workflows/ci.yml)
 ![GitHub License](https://img.shields.io/github/license/retirable/unit-ruby)
 
@@ -8,7 +8,7 @@ A Ruby SDK for the [Unit's Banking-as-a-Service API](https://docs.unit.co/).
 
 > [!IMPORTANT]
 >
-> The development of the `unit-ruby` gem is sponsored and used in production by [Retirable](https://retirable).
+> The development of the [`unit-ruby`](https://rubygems.org/gems/unit-ruby/) gem is sponsored and used in production by [Retirable](https://retirable).
 >
 > If you are starting a new project, you might want to consider Unit's officially supported gem, [`unit-ruby-sdk`](https://github.com/unit-finance/unit-ruby-sdk)
 
