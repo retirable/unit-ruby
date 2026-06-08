@@ -29,11 +29,11 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 3.3'
 
-  spec.add_dependency 'activesupport', '~> 7'
+  spec.add_dependency 'activesupport', '>= 7.0', '< 9'
   spec.add_dependency 'faraday', '~> 2'
   spec.add_dependency 'faraday-retry', '~> 2'
 
-  spec.add_development_dependency 'dotenv', '~> 2'
+  spec.add_development_dependency 'dotenv', '~> 3'
   spec.add_development_dependency 'pry', '~> 0.15'
   spec.add_development_dependency 'rake', '~> 13'
   spec.add_development_dependency 'rspec', '~> 3'
