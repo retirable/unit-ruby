@@ -9,7 +9,7 @@ Style/MutableConstant:
 
 Layout/LineLength:
     Max: 100
-    IgnoredPatterns: ['(\A|\s)#']
+    AllowedPatterns: ['(\A|\s)#']
 
 Style/Documentation:
     Enabled: false

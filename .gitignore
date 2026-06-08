@@ -11,3 +11,7 @@
 # rspec failure tracking
 .rspec_status
 .env
+
+# Library gem: dependencies are resolved by the consuming app against the
+# gemspec, so the lockfile is not committed. CI resolves fresh on each run.
+Gemfile.lock
