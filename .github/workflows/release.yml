@@ -35,14 +35,24 @@ jobs:
         with:
           ruby-version: "3.4"
           bundler-cache: true
-      - name: Read gem version
+      - name: Read and validate gem version
         id: version
-        run: echo "version=$(ruby -e 'require "./lib/unit-ruby/version"; print Unit::VERSION')" >> "$GITHUB_OUTPUT"
+        run: |
+          version="$(ruby -e 'require "./lib/unit-ruby/version"; print Unit::VERSION')"
+          # Enforce semver before the value is used anywhere else, so a crafted
+          # version string can't smuggle shell metacharacters into later steps.
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid version format: $version" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Check whether this version is already tagged
         id: tag
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
         run: |
-          if git rev-parse "v${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
-            echo "Version v${{ steps.version.outputs.version }} already released; skipping."
+          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "Version v$VERSION already released; skipping."
             echo "exists=true" >> "$GITHUB_OUTPUT"
           else
             echo "exists=false" >> "$GITHUB_OUTPUT"
