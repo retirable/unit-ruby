@@ -129,15 +129,13 @@ $ bundle exec rake install
 
 ## Releasing
 
-In order to publish this gem on [RubyGems.org](https://rubygems.org/), you will need to create a RubyGems account. Note that multi-factor authentication must be set up on your account before a gem can be published.
+Releases are minted automatically. When a change to `lib/unit-ruby/version.rb` lands on `main`, the [Release workflow](.github/workflows/release.yml) builds the gem, tags the commit `vX.Y.Z`, and publishes to [RubyGems.org](https://rubygems.org/gems/unit-ruby/). No manual `gem push` is required, and no RubyGems API key is stored — the workflow authenticates via [OIDC trusted publishing](https://guides.rubygems.org/trusted-publishing/).
 
-Once your account is set up, the following operations will facilitate publishing the latest version of the gem:
+To cut a release:
 
-1. After making your changes to the gem, update the version number in `version.rb` and open a PR for review using semantic versioning
-2. Ensure that PR request is approved by appropriate member(s) of the engineering team before publishing the gem in the below steps
-3. Run `gem build unit-ruby`. This will build a version of the gem called `unit-ruby-[gem version number].gem`
-4. Push this latest version of the gem to RubyGems.org by calling `gem push unit-ruby-[gem version number].gem`
-5. Merge PR into `main` branch
+1. Make your changes, then bump the version in `lib/unit-ruby/version.rb` following [semantic versioning](https://semver.org/) and add an entry to `CHANGELOG.md`.
+2. Open a PR and get it approved by the appropriate member(s) of the engineering team.
+3. Merge to `main`. The Release workflow publishes the new version automatically. If the version is unchanged, no release is cut.
 
 ## Contributing
 
