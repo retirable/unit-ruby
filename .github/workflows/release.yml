@@ -1,0 +1,86 @@
+# Publishes the gem to RubyGems.org via OIDC trusted publishing whenever
+# lib/unit-ruby/version.rb changes on main. No long-lived API key is stored:
+# configure-rubygems-credentials exchanges a short-lived GitHub OIDC token for
+# RubyGems credentials by assuming the OIDC API key role configured on
+# rubygems.org. `bundle exec rake release` then builds the gem, creates and
+# pushes the vX.Y.Z tag, and publishes to RubyGems.org.
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - lib/unit-ruby/version.rb
+
+# Never run two releases at once.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  push:
+    name: Push gem to RubyGems.org
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # push the version tag
+      id-token: write # mint the OIDC token for trusted publishing
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          persist-credentials: false
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@12fd324f1d0b43274fdc8130f6980590a667c455 # v1.312.0
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+      - name: Read and validate gem version
+        id: version
+        run: |
+          version="$(ruby -e 'require "./lib/unit-ruby/version"; print Unit::VERSION')"
+          # Enforce semver before the value is used anywhere else, so a crafted
+          # version string can't smuggle shell metacharacters into later steps.
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid version format: $version" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Check whether this version is already tagged
+        id: tag
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "Version v$VERSION already released; skipping."
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Configure RubyGems credentials
+        if: steps.tag.outputs.exists == 'false'
+        uses: rubygems/configure-rubygems-credentials@762a4b77c3300434bb57c7ce80b20e36231927aa # v2.0.0
+        with:
+          role-to-assume: rg_oidc_akr_54hgswsa4knajxk89skj
+      - name: Set git identity and push URL
+        if: steps.tag.outputs.exists == 'false'
+        run: |
+          # Attribute the release tag to the last committer on HEAD.
+          git config --global user.email "$(git log -1 --pretty=format:'%ae')"
+          git config --global user.name "$(git log -1 --pretty=format:'%an')"
+          # Restore push credentials (checkout ran with persist-credentials: false)
+          # so `rake release` can push the tag.
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY"
+      - name: Release
+        if: steps.tag.outputs.exists == 'false'
+        run: bundle exec rake release
+      - name: Wait for release to propagate
+        if: steps.tag.outputs.exists == 'false'
+        run: |
+          gem install rubygems-await
+          gem_tuple="$(ruby -rbundler/setup -rbundler -e '
+              spec = Bundler.definition.specs.find {|s| s.name == ARGV[0] }
+              raise "No spec for #{ARGV[0]}" unless spec
+              print [spec.name, spec.version, spec.platform].join(":")
+            ' "unit-ruby")"
+          gem await "${gem_tuple}"
