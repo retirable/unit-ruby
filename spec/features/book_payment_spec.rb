@@ -28,6 +28,8 @@ RSpec.describe Unit::BookPayment do
   end
 
   it 'creates a book payment between two accounts' do
+    Factory.fund_deposit_account(deposit_account, 10_000)
+
     payment = Unit::BookPayment.create(
       amount: 10_000,
       description: 'Funding',
@@ -39,6 +41,7 @@ RSpec.describe Unit::BookPayment do
     )
 
     expect(payment.type).to eq 'bookPayment'
+    expect(payment.status).to eq 'Sent'
     expect(payment.amount).to eq 10_000
     expect(payment.description).to eq 'Funding'
     expect(payment.tags[:tag1]).to eq 'value1'

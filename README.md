@@ -97,17 +97,17 @@ debit_card = Unit::IndividualDebitCard.create(
 )
 
 # Book a transfer between two Unit accounts
-savings_account = Unit::DepositAccount.create(
-    deposit_product: 'savings',
+other_account = Unit::DepositAccount.create(
+    deposit_product: 'checking',
     customer: customer
 )
 
 book_payment = Unit::BookPayment.create(
     amount: 10_000, # in cents
-    description: 'Transfer to savings',
+    description: 'Transfer between accounts',
     idempotency_key: "book-payment-for-#{my_user_id}",
     account: deposit_account,
-    counterparty_account: savings_account
+    counterparty_account: other_account
 )
 ```
 
