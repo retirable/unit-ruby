@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+- Add `Unit::BookPayment` for booking transfers between Unit accounts.
+- Allow `belongs_to` relationships to specify the JSON:API `type` sent to Unit.
+
 ## 1.1.1
 
 - Publish releases automatically to RubyGems.org via OIDC trusted publishing when `version.rb` changes on `main`.
