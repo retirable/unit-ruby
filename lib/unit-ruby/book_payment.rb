@@ -20,8 +20,6 @@ module Unit
     belongs_to :customer, class_name: 'Unit::IndividualCustomer'
     belongs_to :counterparty_customer, class_name: 'Unit::IndividualCustomer'
 
-    include ResourceOperations::Find
-    include ResourceOperations::List
     include ResourceOperations::Create
   end
 end

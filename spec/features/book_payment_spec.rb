@@ -44,8 +44,5 @@ RSpec.describe Unit::BookPayment do
     expect(payment.tags[:tag1]).to eq 'value1'
     expect(payment.account.id).to eq deposit_account.id
     expect(payment.counterparty_account.id).to eq counterparty_deposit_account.id
-
-    expect(Unit::BookPayment.find(payment.id).id).to eq payment.id
-    expect(Unit::BookPayment.list(where: { type: ['BookPayment'] })).not_to be_empty
   end
 end
