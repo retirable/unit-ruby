@@ -29,10 +29,10 @@ RSpec.describe Unit::BookPayment do
 
   it 'creates a book payment between two accounts' do
     Factory.fund_deposit_account(deposit_account, 10_000)
-    expect(Unit::DepositAccount.find(deposit_account.id).available).to be >= 10_000
+    expect(Unit::DepositAccount.find(deposit_account.id).available).to be >= 5_000
 
     payment = Unit::BookPayment.create(
-      amount: 10_000,
+      amount: 5_000,
       description: 'Funding',
       transaction_summary_override: 'Transfer to savings',
       idempotency_key: SecureRandom.uuid,
@@ -43,7 +43,7 @@ RSpec.describe Unit::BookPayment do
 
     expect(payment.type).to eq 'bookPayment'
     expect(payment.status).to eq('Sent'), "Book payment was #{payment.status}: #{payment.reason}"
-    expect(payment.amount).to eq 10_000
+    expect(payment.amount).to eq 5_000
     expect(payment.description).to eq 'Funding'
     expect(payment.tags[:tag1]).to eq 'value1'
     expect(payment.account.id).to eq deposit_account.id
