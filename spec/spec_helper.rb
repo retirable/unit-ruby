@@ -48,6 +48,20 @@ module Factory
     Unit::DepositAccount.create(deposit_product: 'checking', customer: customer)
   end
 
+  # Simulates an incoming ACH credit to fund an account (sandbox only)
+  def self.fund_deposit_account(deposit_account, amount)
+    Unit::APIResource.connection.post(
+      '/sandbox/payments',
+      {
+        data: {
+          type: 'achPayment',
+          attributes: { amount: amount, direction: 'Credit', description: 'Sandbox funding' },
+          relationships: { account: { data: { type: 'depositAccount', id: deposit_account.id } } }
+        }
+      }
+    )
+  end
+
   def self.create_debit_card(customer, deposit_account)
     random_user_id = rand(10**9).to_s.rjust(9, '0')
 

@@ -98,8 +98,13 @@ module Unit
 
     # Creates an association to a related resource
     # This will create a helper method to traverse into a resource's related resource(s)
-    def self.belongs_to(resource_name, class_name: nil)
+    #
+    # @param resource_name [Symbol] the name of the relationship
+    # @param class_name [String] the class of the related resource
+    # @param type [Symbol] the JSON:API type sent for the relationship, when it differs from the relationship name
+    def self.belongs_to(resource_name, class_name: nil, type: nil)
       class_name ||= resource_name.to_s.camelize
+      type ||= resource_name.to_s.camelize(:lower).to_sym
 
       define_method(resource_name) do
         relationship_id = relationships.dig(resource_name, :data, :id)
@@ -111,7 +116,7 @@ module Unit
 
       define_method("#{resource_name}=") do |resource|
         relationships[resource_name] = {
-          data: { type: resource_name.to_s.camelize(:lower).to_sym, id: resource.id }
+          data: { type: type, id: resource.id }
         }
       end
     end
