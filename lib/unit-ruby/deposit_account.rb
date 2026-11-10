@@ -17,6 +17,9 @@ module Unit
     attribute :status, Types::String, readonly: true # Status of the account, either Open, Frozen, or Closed.
     attribute :freeze_reason, Types::String, readonly: true # Optional. The reason the account was frozen, either Fraud or free-text description.
     attribute :close_reason, Types::String, readonly: true # Optional. The reason the account was closed, either ByCustomer or Fraud.
+    attribute :close_reason_text, Types::String, readonly: true # Optional. Free-text description of the close reason.
+    attribute :fraud_reason, Types::String, readonly: true # Optional. The fraud reason, when the account was closed for Fraud.
+    attribute :bank_reason, Types::String, readonly: true # Optional. The bank reason, when the account was closed ByBank.
 
     belongs_to :customer, class_name: 'Unit::IndividualCustomer'
     has_many :customers, class_name: 'Unit::IndividualCustomer'
@@ -30,6 +33,24 @@ module Unit
       )
 
       self.class.find(id)
+    end
+
+    # Closes the account. This action cannot be undone.
+    #
+    # @param reason [String] ByCustomer, Fraud, ByBank, NegativeBalance, BreachOfTermsAndConditions,
+    #   NoAccountActivity, ProgramChange, ProgramClosed or CustomerDeceased
+    # @param reason_text [String] Optional. Free-text description, up to 255 characters
+    # @param fraud_reason [String] Optional. Applicable when the reason is Fraud
+    # @param bank_reason [String] Optional. Applicable when the reason is ByBank
+    def close(reason:, reason_text: nil, fraud_reason: nil, bank_reason: nil)
+      attributes = { reason: reason, reason_text: reason_text,
+                     fraud_reason: fraud_reason, bank_reason: bank_reason }.compact
+      closed_account = self.class.connection.post(
+        "#{self.class.resource_path(id)}/close",
+        { data: { type: 'depositAccountClose', attributes: attributes } }
+      )
+
+      update_resource_from_json_api(closed_account)
     end
 
     def limits

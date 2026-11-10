@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'securerandom'
 
-RSpec.describe Unit::DepositAccount do
+RSpec.describe Unit::IndividualCustomer do
   before do
     establish_connection_to_api!
   end
@@ -33,5 +33,19 @@ RSpec.describe Unit::DepositAccount do
     expect(address.state).to eq('ME')
     expect(address.postal_code).to eq('04101')
     expect(address.country).to eq('US')
+  end
+
+  it 'archives the customer' do
+    customer.archive(reason: 'Inactive')
+
+    expect(customer.status).to eq 'Archived'
+    expect(customer.archive_reason).to eq 'Inactive'
+    expect(Unit::IndividualCustomer.find(customer.id).status).to eq 'Archived'
+  end
+
+  it 'does not archive a customer that has an open account' do
+    Factory.create_deposit_account(customer)
+
+    expect { customer.archive(reason: 'Inactive') }.to raise_error(Unit::Error)
   end
 end

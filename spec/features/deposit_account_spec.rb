@@ -41,6 +41,20 @@ RSpec.describe Unit::DepositAccount do
     end
   end
 
+  context 'when closing an account' do
+    let(:deposit_account) do
+      Factory.create_deposit_account(customer)
+    end
+
+    it 'closes the deposit account' do
+      deposit_account.close(reason: 'Fraud', reason_text: 'Closed by test',
+                            fraud_reason: 'AccountActivity')
+
+      expect(deposit_account.status).to eq 'Closed'
+      expect(Unit::DepositAccount.find(deposit_account.id).status).to eq 'Closed'
+    end
+  end
+
   context 'when creating an account with multiple owners' do
     let(:another_customer) do
       Factory.create_individual_customer

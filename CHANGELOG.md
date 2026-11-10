@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0
+
+- Add `Unit::DepositAccount#close` to close a deposit account.
+- Add `Unit::IndividualCustomer#archive` to archive a customer.
+
 ## 1.2.0
 
 - Add `Unit::BookPayment` for booking transfers between Unit accounts.
