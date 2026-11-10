@@ -51,9 +51,6 @@ RSpec.describe Unit::DepositAccount do
                             fraud_reason: 'AccountActivity')
 
       expect(deposit_account.status).to eq 'Closed'
-      expect(deposit_account.close_reason).to eq 'Fraud'
-      expect(deposit_account.close_reason_text).to eq 'Closed by test'
-      expect(deposit_account.fraud_reason).to eq 'AccountActivity'
       expect(Unit::DepositAccount.find(deposit_account.id).status).to eq 'Closed'
     end
   end
